@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=
+    , initial-scale=1.0">
+    <title>特色地标</title>
+    <!-- <link rel="stylesheet" href="./初始化.css"> -->
+    <style>
+        body{
+            background-color: black;
+            font-family: '华文行楷';
+            color: whitesmoke;
+            
+        }
+        .title{
+            width: 400px;
+            height: 50px;
+            margin-left: 650px;
+            margin-bottom: 5px;
+            color: rgb(146, 126, 11);
+        }
+        
+        .box{
+            width: 100%;
+            height: 112px;
+            margin:0px auto;
+            overflow: hidden;
+        }
+        .box:hover ul{
+            animation-play-state: paused;
+        }
+        img{
+            display: block;
+            width: 200px;
+            height: 112px;
+            object-fit: contain;
+            
+        }
+        .box ul{
+            display: flex;
+            animation: move 6s infinite alternate linear;
+            /* justify-content: center; */
+        }
+        @keyframes move{
+            0%{
+                transform: translate(0);
+            }
+            100%{
+                transform: translate(-1400px);
+            }
+        }
+     .main{
+        height: 300px;
+        width: 750px;
+        margin: 60px auto;
+        font-size: 25px;
+     }
+     .p1{
+          width: 80%;
+          height: 300px;
+          margin: 0px auto;
+          display: flex;    
+          justify-content: center;
+      }
+      .p1 img{
+          margin: 0px 10px;
+          width: 400px;
+          height: 300px;
+      }
+   
+     .yes{
+        width: 100%;
+        height: 800px;
+        display: flex;
+        font-size: 19px;
+     }
+     .a {
+          
+            position: relative;
+            width: 650px;
+            height: 500px;
+            margin: 30px auto;
+            display: flex;
+            justify-content: space-evenly;
+        }
+
+        .b {
+            width: 400px;
+            height: 500px;
+            transition: .4s;
+            background-size: cover;
+        }
+
+        .c {
+            width: 200px;
+            height: 500px;
+            display: flex;
+            /* 纵向布局 */
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .d {
+            position: relative;
+            width: 200px;
+            height: 90px;
+            right: 0;
+            transition: .5s;
+            overflow: hidden;
+        }
+
+        .d img {
+            position: absolute;
+            width: 200px;
+            /* 小图片上移 */
+            transform: translate(0, -50px);
+            transition: .5s;
+            right: 0;
+        }
+
+        .d.dd {
+            opacity: 0;
+            right: 250px;
+        }
+
+        .d:hover img {
+            opacity: 0;
+            right: 250px;
+        }
+        .jinlin{
+            width: 80%;
+            height: 400px;
+            font-size: 24px;
+            color: black;
+            margin: 0px auto;
+            display: flex;
+            background-color: white;
+            justify-content: space-between;
+        }
+        .jinlin .left{
+            width: 500px;
+            height: 400px;
+            object-fit: contain;
+            
+        }
+        .jinlin .intro{
+            width: 600px;
+            height: 100%;
+            margin-left: 10px;
+        
+        }
+        .left img{
+            width: 100%;
+            height: 100%;
+        }
+        .clue{
+            width: 500px;
+            height: 200px;
+            border-radius: 12px;
+            font-size: 24px;
+        margin-top: 30px;
+        margin-left: 300px;
+            display: flex;
+            justify-content: space-between;
+            color: rgb(151, 130, 13);
+        }
+        .clue .pic{
+            text-align: center;
+            width: 240px;
+            height: auto;
+            align-items: center;
+            cursor: pointer;
+        }
+        .dixia {
+            width: 900px;
+            position: absolute;
+            height: 600px;
+            left: 300px;
+            color: #fff;
+            font-family: 'Arial', sans-serif;
+            margin: 100px auto;
+        
+        }
+        .header {
+            background-color: #000;
+            padding: 20px;
+            text-align: center;
+        }
+        .header img{
+            margin: 5px auto;
+        }
+        .logo {
+            width: 100px;
+            margin-bottom: 10px;
+        }
+        .contact-info {
+            margin-top: 20px;
+        }
+        .contact-info a {
+            color: #fff;
+            text-decoration: none;
+            margin: 0 10px;
+        }
+        .footer {
+            background-color: #000;
+            padding: 10px;
+            text-align: center;
+            border-top: 1px solid #444;
+        }
+        span{
+            display: block;
+            color: rgb(169, 145, 11);
+            font-weight: 900;
+        }
+    
+ 
+    </style>
+</head>
+<body>
+    <div class="title">
+        <h1>著名地标</h1>
+    </div>
+    <div class="box">
+        <ul>
+            <li><img src="黑湖.jpg" alt=""></li>
+            <li><img src="有求必应屋.jpg" alt=""></li>
+            <li class="nini"><img src="./霍格沃滋大厅.jpg" alt=""></li>
+            <li class="xiao"><img src="./霍格沃滋三座塔楼.jpg" alt=""></li>
+            <li><img src="./禁林.jpg" alt=""></li>
+            <li class="fen"><img src="./1.jpg" alt=""></li>
+            <li><img src="./2.jpg" alt=""></li>
+            <li><img src="./3.jpg" alt=""></li>
+            <li><img src="./4.jpg" alt=""></li>
+            <li><img src="./5.jpg" alt=""></li>
+        </ul>
+    </div>
+    <div class="main">
+        霍格沃茨城堡最高的三座塔楼分别是天文塔、
+        拉文克劳塔和格兰芬多塔。
+        城堡主楼是霍格沃茨绝大多数教室和办公室的所在地。
+        城堡共有142处台阶，这些台阶有的又宽又大，有的又窄又小、
+        摇摇晃晃；有的每逢星期五就通到不同的地方；有些上到半截，
+        一个台阶会突然消失，因此，要记住在什么地方应当跳过去。城堡中的一切似乎都在“不停地移动”，
+        包括上面所提到的台阶。阿不思·邓布利多曾说就连自己也不知道霍格沃茨城堡的所有秘密，因为这座城堡历史悠久，见证了数个世纪的古老魔法。
+
+
+    </div>
+    <div class="p1">
+        <img src="./天文塔.png" >
+        <img src="./伯尔尼钟楼.jpg" >
+        <img src="./塔楼.png" >
+    </div>
+    <div class="yes">
+        <div class="main">
+            <ul>
+               <li>
+                   格兰芬多（Gryffindor）的休息室位于城堡的一个塔楼内，
+                   装饰着温暖的红色和金色，墙上挂着学院创始人戈德里克·格兰芬多的肖像。
+                   休息室里摆放着舒适的扶手椅和壁炉，为学生提供了一个放松和社交的空间。要进入休息室，学生必须说出正确的口令。
+               </li>
+               <li>
+                   斯莱特林（Slytherin）的休息室则位于湖底，有着冷色调的绿色和银色装饰，
+                   墙上挂着萨拉查·斯莱特林的肖像。
+                   这个半水下的环境给人一种神秘和幽静的感觉，休息室内有舒适的沙发和壁炉，以及斯莱特林学生特有的狡猾和野心
+               </li>
+               <li>
+                   拉文克劳（Ravenclaw）的休息室位于一个高塔之上，装饰以蓝色和银色为主，
+                   墙上挂着罗伊纳·拉文克劳的肖像。这个休息室充满了智慧和学术的氛围，书架上摆满了书籍，学生们可以在这里安静地阅读和学习
+               </li>
+               <li>
+                   赫奇帕奇（Hufflepuff）的休息室则以其舒适和包容著称，装饰着黄色和黑色，
+                   墙上挂着赫尔加·赫奇帕奇的肖像。
+                   这个休息室位于一个温暖而宽敞的地下圆形房间内，四周环绕着舒适的座椅和温馨的壁炉，鼓励学生之间的友谊和合作
+               </li>
+            </ul>
+           </div>
+        <div class="a">
+            <div class="b"></div>
+            <div class="c">
+                <div class="d dd"><img src="./1.jpg" ></div>
+                <div class="d"><img src="./2.jpg" alt=""></div>
+                <div class="d"><img src="./3.jpg" alt=""></div>
+                <div class="d"><img src="./4.jpg" alt=""></div>
+                <div class="d"><img src="./5.jpg" alt=""></div>
+            </div>
+        </div>
+    </div>
+    <span>————————————————————————————————————————————————————————————</span>
+    <br>
+    <div class="jinlin">
+        <div class="left">
+            <img src="./禁林.jpg" alt="" >
+        </div>
+        <div class="intro">
+            <p>
+                禁林，也常被称为黑暗森林，是位于霍格沃茨魔法学校场地边缘的一片神秘而危险的森林。这片森林充满了各种古老的神奇动物，如独角兽、夜骐、八眼巨蛛等，同时也是马人的领地。禁林对霍格沃茨的学生来说是禁止进入的，但在特殊情况下，如关禁闭或上保护神奇生物课时，学生们可以进入这片森林。
+禁林内部居住着许多危险的生物，包括但不限于：
+八眼巨蛛：包括阿拉戈克及其后代，它们在霍格沃茨之战中为食死徒一方而战。
+夜骐：只有见过死亡的人才能看见的神秘生物。
+独角兽：纯洁的生物，它们的血被奇洛教授用来回复伏地魔的体力。
+马人：他们把禁林当做自己的领地，并且不欢迎外人。
+禁林不仅是霍格沃茨的一部分，也是魔法世界中一个充满未知和危险的地带，它的神秘和危险吸引着勇敢的探险者。
+
+            </p>
+        </div>
+    </div>
+    <br>
+    <div class="jinlin">
+        <div class="left">
+            <img src="./黑湖.jpg" alt="" >
+        </div>
+        <div class="intro">
+            <p>
+                黑湖位于霍格沃茨城堡的附近，湖边有黑湖码头，是霍格沃茨特快列车迎接新生的地方。湖中环境幽暗，湖水深邃，是一个神秘的地方。
+                黑湖是许多神奇生物的家园。其中最著名的居民是一只巨大的乌贼，它对霍格沃茨的学生非常温顺，喜欢在晴天时游到浅滩，让学生给它的触须挠痒痒。此外，湖中还居住着人鱼，它们在三强争霸站中掳走了参赛者最心爱的人，以此来给三强争霸赛的选手制造障碍。
+                黑湖不仅是霍格沃茨学生学习保护神奇生物课的实践场所，也是他们冒险和探索的地方。   黑湖被认为是一个神秘而危险的地方，湖中隐藏着许多未知的秘密。
+             黑湖以其深邃的湖水和神秘的氛围，成为了霍格沃茨魔法世界中一个不可或缺的部分，它不仅是学生们学习的地方，也是他们冒险和成长的舞台。
+             
+
+            </p>
+        </div>
+    </div>
+    <div class="clue">
+        <div class="pic">
+            <img src="../动图特效/mao.gif" width="120px" height="120px" onclick="page()" title="返回主页面">
+        </div>
+        <p>
+            海格住在禁林旁边的小木屋里，是猎场的看守。疯狂的热衷于神奇动物，
+            憨厚善良，拥有极强的正义感。近期正在因为培训猫头鹰正愁眉苦脸
+        </p>
+    </div>
+   
+    <div class="dixia">
+        <div class="header">
+            <img src="../霍格沃兹官网主页面/分院帽.png" alt="Hogwarts Logo" class="logo">
+            <h1>HOGWARTS</h1>
+            <p>霍格沃茨魔法学校</p>
+            <div class="contact-info">
+                <a href="tel:15055686182">📞 15055686182</a>
+                <a href="mailto:2391038939@qq.com">✉️ 2391038939@qq.com</a>
+                <a href="#">📍 霍格沃茨魔法学校</a>
+                <a href="#">💬 意见反馈</a></div>
+        </div>
+        <div class="footer">
+            <p>© 霍格沃茨魔法学校 —— Stay With Magic</p>
+            <p>Looking for Pottermore? Wizarding World is the new official home of Harry Potter & Fantastic Beasts. Join the Fan Club and bring your traits with you.</p>
+            <p>Brought to you by Wizarding World Digital, a partnership between Warner Bros. and Pottermore. Delivering the latest news and official products from the Wizarding World and our partners.</p>
+            <p>TM & © WBEI. WIZARDING WORLD Publishing and Theatrical Stage Rights © J.K. Rowling.</p>
+        </div>
+    </div>
+    <script>
+        // 获取左边大图的元素
+        let b = document.querySelector(".b")
+        // 获取右边小图的所有元素
+        let d = document.getElementsByClassName("d")
+
+        let time
+        let index = 0
+
+        // 设置一个重置函数
+        let a = function () {
+            for (let i = 0; i < d.length; i++) {
+                d[i].className = "d"
+            }
+        }
+        // 设置一个选中函数
+        let aa = function () {
+            // 先代入重置函数
+            a()
+            d[index].className = "d dd"
+        }
+        // 设置启动轮播图的时间函数
+        function ts() {
+            time = setInterval(function () {
+                aa()
+                index++
+                b.style.backgroundImage = "url('" + [index] + ".jpg')"
+                if (index == 5) {
+                    index = 0
+                }
+            }, 1500);
+        }
+        for (let i = 0; i < d.length; i++) {
+            // 鼠标移动到当前小图片上时触发
+            d[i].onmousemove = function () {
+                // 鼠标移动到当前小图片时右边大图片变成当前的小图片
+                b.style.backgroundImage = "url('" + [i + 1] + ".jpg')"
+                // 鼠标移动到小图片上面时关闭定时器并重置定时，
+                // 鼠标移开后再继续执行
+                a()
+                clearInterval(time)
+                index = i + 1
+                ts()
+            }
+        }
+        // 执行轮播图
+        ts()
+        function page() {
+            window.location.href = "../HTML/霍格沃兹官方页面.html"; 
+        }
+    </script>
+
+
+</body>
+</html>

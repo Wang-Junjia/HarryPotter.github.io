@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>学校官网</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+            font-size: 20px;
+            color: #f4f1de;
+        }
+
+        body {
+            height: 100vh;
+            background-color: black; 
+            font-family: 华文行楷;
+            position: relative;
+    }
+    .shell{
+            display: flex;
+            justify-content: center;
+            width: 100%;
+            height: 130px; ;
+            font-family: 楷体;
+        }
+        .button{
+            width: 170px;
+            height: 130px;
+            text-align: center;
+            line-height: 130px;
+            transition: .3s;
+            cursor: pointer;
+        }
+        .button:hover{
+            background-color:gray;
+            opacity: 0.8;
+        }
+        .button li:hover{
+            background-color: gray;
+            opacity: 0.8;
+        }
+        .button ul li{
+            height: 0;
+            transition: .2s;
+            opacity: 0;
+            transform: translateY(-65px);
+            background-color:white;
+            line-height: 25px;
+            
+        }
+        .button:hover li{
+            height: 65px;
+            opacity: 1;
+            transform: translateY(0);
+        }
+        li a{
+            color: black;
+        }
+        .main{
+            width: 80%;
+            height: 500px;
+            text-align: center;
+            object-fit: contain;
+            margin:20px auto;
+       
+        }
+ 
+        .main .hover-text{
+            font-family: 隶书;
+        }
+      .music{
+        width: 100%;
+        height: 50px;
+        display: flex;
+        justify-content: space-evenly;
+      }
+      button {
+        width: 60px;
+            font-size: 16px;
+            margin-top: 10px;
+            cursor: pointer;
+            background-color: rgba(12, 141, 221, 0.666);
+        }
+        .picture{
+            margin: 80px auto;
+            width: 1400px;
+            height: 400px;
+            display: flex;
+            justify-content: space-around;
+            object-fit: contain;
+        }
+       
+        .iner{
+            width: 900px;
+            height: 300px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+       .iner .box{
+            flex: 1;
+            height: 300px;
+            overflow: hidden;
+            transition: .5s;
+            margin: 0 10px;
+            box-shadow: 10px 10px 20px rgba(0, 0, 0, .5);
+            border-radius: 20px;
+            border: 10px solid #fff;
+            background-color: #fff;
+        }
+        .box>img{
+            width: 100%;
+            height: 85%;
+            object-fit: cover;
+            transition: .5s;
+        }
+        .box>span{
+            color: black;
+            font-family: 楷体;
+            text-align: center;
+            height: 15%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .box:hover{
+            flex-basis: 40%;
+        }
+        .box:hover>img{
+            width: 100%;
+            height: 100%;
+        }
+        .picture .left1{
+            margin: 30px 0px;
+        }
+
+        .introduction{
+            width: 700px;
+            height: 200px;
+            margin: 10px auto;
+            /* font-family:'Arial', sans-serif ; */
+            font-family: 楷体;
+            color:gold;
+            line-height: 40px;
+            /* background-color: rgba(5, 50, 5, 0.789); */
+        }
+        .den{
+            width: 800px;
+            height: 400px;
+            margin: 70px auto;
+            object-fit: contain;
+            background-color: white;
+            border-radius: 20px;
+           
+        }
+        .den span{
+            padding: 10px 20px;
+            color: black;
+            font-size: 29px;
+
+        }
+        .den img{
+            padding: 20px 20px ;
+
+        }
+        .den .jieshao  p{
+            color: black;
+            padding: 30px 20px;
+        }
+        .second{
+            width: 70%;
+            height: 100px;
+            margin: 10px auto;
+            font-family: 楷体;
+            color: whitesmoke;
+            text-align: center;
+            font-size: 90px;
+            font-weight: 700;
+        }
+        .second span::after{
+            content: "——————";
+            color: gold;
+        }
+        .second span::before{
+            content: "——————";
+            color: gold;
+        }
+        .random{
+            width: 70%;
+            height: 400px;
+            margin: 20px auto;
+            object-fit: contain;
+        }
+        .random .p1{
+          
+            width: 100%;
+            height: 200px;
+            display: flex;    
+            justify-content: center;
+        }
+        .p1 img{
+            margin: 0px 10px;
+        }
+        .random .p2{
+            margin: 20px auto;
+            width: 100%;
+            height: 200px;
+            display: flex;
+            justify-content: center;
+        }
+        .p2 img{
+            margin: 0px 10px;
+        }
+        .news{
+            width: 900px;
+            height: 400px;
+            display: flex;
+            margin:30px auto;
+            /* background-color: white; */
+            border-radius: 10px;
+            
+        }
+        .news ul{
+            width: 80%;
+            height: 100%;
+        }
+        .news img{
+            margin-top: 30px;
+        }
+        .secret{
+            width: 700px;
+            height: 290px;
+            border-radius: 10px;
+            display: flex;
+            margin: 50px auto;
+            background-color: white;
+            justify-content: space-between;
+        }
+        .secret .mm {
+            margin-top: 30px;
+            width:400px ;
+            margin-right: 10px;
+            height: 80%;
+            background-color: rgb(73, 73, 2);
+            border-radius: 10px;
+        }
+        .mm p{
+            padding: 10px 20px;
+            opacity: 0;
+            transition: 3s;
+        }
+        .secret .mm :hover{
+            opacity: 1;
+        }
+        .container {
+            width: 200px;
+            height: 100px;
+            margin: 0px auto;
+            text-align: center;
+        }
+        .rounded-button {
+        display: inline-block;
+        padding: 15px 30px;
+        font-size: 18px;
+        color: white;
+        font-family: 楷体;
+        background-color: #89baee; 
+        border-radius: 25px; 
+        transition: background-color 0.3s;
+        }
+        .bottom{
+            margin: 100px auto;
+            width: 60%;
+            height: 60px;
+            display: flex;
+            justify-content: space-between;
+        }
+        .dixia {
+            width: 900px;
+            position: absolute;
+            height: 500px;
+            left: 300px;
+            color: #fff;
+            font-family: 'Arial', sans-serif;
+            margin: 100px auto;
+        
+        }
+        .header {
+            background-color: #000;
+            padding: 20px;
+            text-align: center;
+        }
+        .logo {
+            width: 100px;
+            margin-bottom: 10px;
+        }
+        .contact-info {
+            margin-top: 20px;
+        }
+        .contact-info a {
+            color: #fff;
+            text-decoration: none;
+            margin: 0 10px;
+        }
+        .footer {
+            background-color: #000;
+            padding: 10px;
+            text-align: center;
+            border-top: 1px solid #444;
+        }
+  
+ 
+    </style>
+</head>
+
+<body>
+    <ul class="shell">
+        <img src="../霍格沃兹官网主页面/校徽.png" alt="">
+        <li class="button">
+            <span>学校概况</span>
+        <li class="button">
+            <span>院系设置</span>
+            <ul>
+                <li><a href="./格兰芬多.html">格兰芬多</a></li>
+                <li><a href="./赫奇帕奇.html">赫奇帕奇</a></li>
+                <li><a href="./斯莱特林.html">斯特莱林</a></li>
+                <li><a href="./拉文克劳.html">拉文克劳</a></li>
+            </ul>
+        </li>
+        <li class="button">
+            <span>学校地标</span>
+            <ul>
+                <li> <a href="../地标/map.html">特色地标</a></li>
+            </ul>
+        </li>
+        <li class="button">
+            <span>文化传统</span>
+            <ul>
+                <li><a href="文化传统.html">文化传统</a></li>
+            </ul>
+        </li>
+        <li class="button">
+            <span>课程专属</span>
+            <ul>
+                <!-- <li><a href="./天文课.html">天文课</a></li> -->
+                <li><a href="抽卡/zhouka3.html">占卜课</a></li>
+                <li><a href="./钢琴/xiaoxingxingdemo2_0.html">音乐课</a></li>
+                <li><a href="./扫帚/saozhou.html">魔法课</a></li>
+                <!-- <li><a href="./魔法生物课.html">魔法生物课</a></li> -->
+            </ul>
+        </li>
+        <li class="button">
+            <span>魔法考试</span>
+            <ul>
+                <li><a href="魔法考试.html">普通巫术水平考试</a></li>
+                <li><a href="出口.html">出口</a></li>
+            </ul>
+        </li>
+    </ul>
+    <div class="main">
+        <img src="../霍格沃兹官网主页面/school.jpg" width="100%" height="100%" class="left1">
+        <div class="hover-text">
+           散落在主页面和各大学院，地标，节日介绍中的文字信息非常重要，同时需要注意其中提到的每一个角色和异常行为，客观介绍是不会欺骗人的，亲爱的勇士，千万不要掉以轻心啊！
+        </div>
+    </div>
+    <div class="music">   
+        <button id="playButton">播放</button>
+        <button id="pauseButton">暂停</button>
+        <audio id="audio" src="../音乐/John Williams - Hedwig's Theme.mp3" preload="auto" loop autoplay></audio>
+    </div>
+    <div class="picture">
+        <video controls autoplay width="400px" height="200px">	
+			<source src="../video/8ff6d2ee93e4ffa4d5da78fc5fabd3e7.mp4" type="video/mp4" />		
+		</video>
+        <div class="iner">
+            <div class="box">
+                <img src="../霍格沃兹官网主页面/创始人1.gif" width="225px" height="400px">
+                <span> 戈德里克·格兰芬多</span>
+            </div>
+            <div class="box">
+                <img src="../霍格沃兹官网主页面/创始人2.gif" width="225px" height="400px">
+                <span>赫敏·赫奇帕奇</span>
+            </div>
+            <div class="box">
+                <img src="../霍格沃兹官网主页面/创始人3.gif" width="225px" height="400px">
+                <span>  拉文克劳</span>
+            </div>
+            <div class="box">
+                <img src="../霍格沃兹官网主页面/创始人4.gif" width="225px" height="400px">
+                <span> 萨拉扎·斯莱特林</span>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="introduction">
+        <h3>霍格沃茨魔法学校是公元990年左右创办的。是欧洲三大魔法学校之一，也是全世界已知的11所魔法学校之一。
+            创办者是当时最伟大的四位巫师：戈德里克·格兰芬多、萨拉查·斯莱特林、罗伊纳·拉文克劳、赫尔加·赫奇帕奇。
+            学校的四个学院就是以他们的姓氏命名的。学校所处的城堡位于湖边的一座山上，
+            它的确切位置不能确定，因为这里不可标绘。相似地，大多数魔法学校的地点都是保密的，
+            这样能够保证各自的秘密不被外人知晓。
+            </h3>
+    </div>
+    <div class="den">
+        <img src="../霍格沃兹官网主页面/邓布利多.jpg" title="邓布利多" width="120px" height="120px">
+        <span>现任校长</span>
+        <div class="jieshao">
+            <p>
+                阿不思·邓布利多（Albus Dumbledore）,出生于1881年，他是霍格沃茨魔法与巫术学校的校长，
+                年轻时就展现出了非凡的魔法天赋。他与黑巫师格林德沃（Gellert Grindelwald）有过密切的友谊，但后来因意识到格林德沃的邪恶而与其对立。邓布利多以战胜格林德沃而闻名，并成为了魔法界的传奇人物。
+                他是霍格沃茨的校长，深受师生们的尊敬与爱戴。注重学生的个性发展和道德教育，强调爱与友谊的重要性。他在学校内外都发挥着重要的领导作用。
+                邓布利多在整个系列中与黑暗巫师伏地魔（Tom Riddle）展开斗争。他不仅是抵抗伏地魔势力的关键人物，还引导哈利·波特成长为抵抗黑暗势力的英雄。
+            </p>
+        </div>
+    </div>
+    <div class="second"><span> 校园资讯</span></div>
+   <div class="random">
+    <div class="p1">
+        <img src="../霍格沃兹官网主页面/分院帽.jpeg" width="300px" height="200px" title="分院仪式">
+        <img src="../霍格沃兹官网主页面/霍格沃兹火车.jpg" width="300px" height="200px" title="霍格沃兹特快">
+        <img src="../霍格沃兹官网主页面/霍格沃兹圣诞夜.gif" width="300px" height="200px" title="圣诞夜">
+    </div>
+    <div class="p2">
+        <img src="../霍格沃兹官网主页面/学生证.jpg" width="300px" title="学院学生证">
+        <img src="../霍格沃兹官网主页面/霍格沃兹校徽.jpg" alt="" title="霍格沃兹校徽">
+   
+    </div>
+   </div>
+   <div class="second"><span> 校园日报</span></div>
+   <div class="news">
+    <ul>
+        <li>1.来自麦格教授的温馨提醒：期末考试快开始了，请大家积极准备</li>
+        <br>
+        <br>
+        <li>2.学校今日新训练了一批送信猫头鹰，因不熟悉地形，经常走丢，如造成麻烦，请大家谅解</li>
+        <br>
+        <br>
+        <li>3.惊天大消息，小天狼星（坏蛋）从监狱里跑出来了,他会做出什么伤天害理的事情来呢？</li>
+        <br>
+        <br>
+        <li>4.据知情人马尔福报道，疑似哈利波特脚踏三条船！！！！</li>
+        <br><br>
+        <li>5.近日，分院帽疑似遭到威胁，被教唆到处传播虚假消息</li>
+    </ul>
+    <img src="../letter.jpg" alt="" width="300px" height="300px">
+   </div>
+   <div class="secret">
+    <img src="../霍格沃兹官网主页面/分院帽.png" alt="" width="200px" height="200px">
+    <div class="mm"><p>
+分院帽：“你们也许觉得我不算漂亮，但千万不要以貌取人。如果你们能找到比我更聪明的帽子，我可以把自己吃掉......”
+ “你在说什么？孩子，大声点！” 
+“哦，问我邓布利多校长最近怎么样？”
+“校长脾气有点暴躁，有好几次我都看到他锤桌子冲着别人发火。嘿，你知道校长那只凤凰福克斯吗，听说它最近受不了校长的脾气都飞走好几天了。”
+
+    </p></div>
+   </div>
+   <div class="container">
+    <a href="人物介绍.html" class="rounded-button">了解更多人物跳转</a>
+   </div>
+   <div class="bottom">
+    <img src="../霍格沃兹官网主页面/火焰.gif" height="100px">
+    <img src="../霍格沃兹官网主页面/harry.png" height="100px">
+    <img src="../霍格沃兹官网主页面/火焰.gif" height="100px">
+    <div class="dixia">
+        <div class="header">
+            <img src="../霍格沃兹官网主页面/分院帽.png" alt="Hogwarts Logo" class="logo">
+            <h1>HOGWARTS</h1>
+            <p>霍格沃茨魔法学校</p>
+            <div class="contact-info">
+                <a href="tel:15055686182">📞 15055686182</a>
+                <a href="mailto:2391038939@qq.com">✉️ 2391038939@qq.com</a>
+                <a href="#">📍 霍格沃茨魔法学校</a>
+                <a href="#">💬 意见反馈</a></div>
+        </div>
+        <div class="footer">
+            <p>© 霍格沃茨魔法学校 —— Stay With Magic</p>
+            <p>Looking for Pottermore? Wizarding World is the new official home of Harry Potter & Fantastic Beasts. Join the Fan Club and bring your traits with you.</p>
+            <p>Brought to you by Wizarding World Digital, a partnership between Warner Bros. and Pottermore. Delivering the latest news and official products from the Wizarding World and our partners.</p>
+            <p>TM & © WBEI. WIZARDING WORLD Publishing and Theatrical Stage Rights © J.K. Rowling.</p>
+        </div>
+    </div>
+</body>
+
+<script>
+    const playButton = document.getElementById('playButton');
+    const pauseButton = document.getElementById('pauseButton');
+    const audio = document.getElementById('audio');
+
+    playButton.addEventListener('click', () => {
+        audio.play();
+    });
+
+    pauseButton.addEventListener('click', () => {
+        audio.pause();
+    });
+</script>
+
+</html>

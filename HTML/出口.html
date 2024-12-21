@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BACK HOME</title>
+    <style>
+        body{
+            background-color: rgb(9, 9, 10);
+            display: flex;
+            justify-content: center;
+            font-family: Arial, sans-serif;
+            height: 100vh;
+            position: relative;
+     
+        }
+        .a{
+            position: relative;
+            top: 100px;
+            font: 900 100px '';
+            color: #333;
+            cursor: pointer;
+        }
+        .a span{
+            transition: .5s;
+            transition-delay: calc(var(--i)*.1s);
+        }
+        .a:hover span{
+            color: #fff;
+            text-shadow: 0 0 10px #fff,
+            0 0 20px #fff,
+            0 0 30px #fff,
+            0 0 50px #fff,
+            0 0 80px #fff;
+        }
+        .b{
+            width: 600px;
+            height: 400px;
+            position: absolute;
+            top: 300px;
+            margin: 40px auto;
+            text-align: center;
+            font-family: 楷体;
+            font-size: 30px;
+            border-radius: 20px;
+            background-color: white;
+        }
+        #container {
+            text-align: center;
+            background: white;
+            width: 400px;
+            height: 300px;
+            position: absolute;
+            top: 300px;
+            left: 490px;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        input[type="text"] {
+            padding: 10px;
+            margin: 10px 0;
+            width: 200px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        button {
+            padding: 10px 15px;
+            border: none;
+            background-color: #0b5164;
+            color: white;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #075f1a;
+        }
+    </style>
+</head>
+<body>
+    <div class="a">
+        <span style="--i:1">E</span>
+        <span style="--i:2">N</span>
+        <span style="--i:3">T</span>
+        <span style="--i:4">R</span>
+        <span style="--i:5">A</span>
+        <span style="--i:6">N</span>
+        <span style="--i:7">C</span>
+        <span style="--i:8">E</span>
+    </div>
+    <div id="container">
+        <h2>请问把你带入魔法世界的元凶是？</h2>
+        <input type="text" id="answer" placeholder="请输入答案">
+        <button onclick="checkAnswer()">提交</button>
+        <p id="message" style="color: red;"></p>
+    </div>
+    <script>
+        function checkAnswer() {
+            const answer = document.getElementById('answer').value;
+            const message = document.getElementById('message');
+    
+            if (answer === '猫头鹰') {
+                window.location.href = './truth.html'; // 跳转到下一个页面
+            } else {
+                message.textContent = '答案错误，请再试一次。';
+            }
+        }
+    </script>
+</body>
+</html>

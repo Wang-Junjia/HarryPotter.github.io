@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>魔法生物课</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+        .box{
+        width: 100%;
+        text-align: center;
+        height: 100px;
+        margin: 10px auto;
+        font-family: 华文行楷;
+        font-size: 35px;
+        color: white;
+       background-color:black;
+
+      }
+        .shell {
+            width: 100%;
+            position: relative;
+            padding: 80px 0;
+            transition: 0.3s ease 0s;
+            background-attachment: fixed;
+            background-size: cover;
+        }
+
+        .shell:before {
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url(./image/1.png);
+            content: "";
+        }
+
+        .header {
+            width: 100%;
+            text-align: center;
+            margin-bottom: 80px;
+            position: relative;
+        }
+
+        .title {
+            color: #fff;
+            font-size: 46px;
+            font-weight: normal;
+            margin: 0;
+        }
+
+        .timeline {
+            display: flex;
+            margin: 0 auto;
+            flex-wrap: wrap;
+            flex-direction: column;
+            max-width: 700px;
+            position: relative;
+        }
+
+        .content-title {
+            font-weight: normal;
+            font-size: 66px;
+            margin: -10px 0 0 0;
+            transition: 0.4s;
+            padding: 0 10px;
+            box-sizing: border-box;
+            color: #fff;
+        }
+
+        .content-desc {
+            margin: 0;
+            font-size: 15px;
+            box-sizing: border-box;
+            color: rgba(255, 255, 255, 0.7);
+            line-height: 25px;
+        }
+
+        .timeline:before {
+            position: absolute;
+            left: 50%;
+            width: 2px;
+            height: 100%;
+            margin-left: -1px;
+            content: "";
+            background: rgba(255, 255, 255, 0.07);
+        }
+
+        .item {
+            padding: 40px 0;
+            opacity: 0.3;
+            filter: blur(2px);
+            transition: 0.5s;
+            box-sizing: border-box;
+            width: calc(50% - 40px);
+            display: flex;
+            position: relative;
+            transform: translateY(-80px);
+        }
+
+        .item:before {
+            content: attr(data-text);
+            letter-spacing: 3px;
+            width: 100%;
+            position: absolute;
+            color: rgba(255, 255, 255, 0.5);
+            font-size: 13px;
+            border-left: 2px solid rgba(255, 255, 255, 0.5);
+            top: 70%;
+            margin-top: -5px;
+            padding-left: 15px;
+            opacity: 0;
+            right: calc(-100% - 56px);
+            font: 900 20px '';
+            letter-spacing: 5px;
+        }
+
+        .item:nth-child(even) {
+            align-self: flex-end;
+        }
+
+        .item:nth-child(even):before {
+            right: auto;
+            text-align: right;
+            left: calc(-100% - 56px);
+            padding-left: 0;
+            border-left: none;
+            border-right: 2px solid rgba(255, 255, 255, 0.5);
+            padding-right: 15px;
+        }
+
+        .item--active {
+            opacity: 1;
+            transform: translateY(0);
+            filter: blur(0px);
+        }
+
+        .item--active:before {
+            top: 50%;
+            transition: 0.3s all 0.2s;
+            opacity: 1;
+        }
+
+        .item--active .content-title {
+            margin: -50px 0 20px 0;
+        }
+
+        .img {
+            max-width: 100%;
+            box-shadow: 0 10px 15px rgba(0, 0, 0, 0.4);
+        }
+
+        .subtitle {
+            color: rgba(255, 255, 255, 0.5);
+            font-size: 16px;
+            letter-spacing: 5px;
+            margin: 10px 0 0 0;
+            font-weight: normal;
+        }
+
+        .footer {
+            padding: 95px 0;
+            text-align: center;
+        }
+
+        .footer a {
+            color: #999;
+            display: inline-block;
+        }
+
+        @media only screen and (max-width: 767px) {
+            .item {
+                align-self: baseline !important;
+                width: 100%;
+                padding: 0 30px 150px 80px;
+            }
+
+            .item:before {
+                left: 10px !important;
+                padding: 0 !important;
+                top: 50px;
+                text-align: center !important;
+                width: 60px;
+                border: none !important;
+            }
+
+            .item:last-child {
+                padding-bottom: 40px;
+            }
+        }
+
+        @media only screen and (max-width: 767px) {
+            .timeline:before {
+                left: 40px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box">
+        <p>魔法生物大赏</p>
+        <img src="../魔法生物/喷火.gif" width="200px" height="50px">
+    </div>
+    <div class="shell" id="shell">
+        <div class="header">
+            <h2 class="title"></h2>
+            <h3 class="subtitle">BILIBILI</h3>
+        </div>
+        <div class="timeline">
+            <div class="item" data-text="八眼巨蛛">
+                <div class="content">
+                    <img src="../魔法生物/八眼巨蛛.jpg" alt="" class="img">
+                    <h2 class="content-title">2024</h2>
+                    <p class="content-desc">
+                        八眼巨蛛 (Acromantula)是一种体型巨大的蜘蛛，生长在亚洲东南部的雨林深处，
+                        特别是加里曼丹岛茂密的丛林深处。八眼巨蛛被认为是巫师培育出来的物种，守护巫师的居所或财宝。
+                        这种巨型蜘蛛生性残忍，喜食人肉。
+                        八眼巨蛛在1965年《禁止动物培育实验法》出台之前就已经存在：早在1794年，就已经有人目击到这种生物。
+                    </p>
+                </div>
+            </div>
+
+            <div class="item" data-text="小精灵">
+                <div class="content">
+                    <img src="../魔法生物/小怪物.gif" alt="" class="img">
+                    <h2 class="content-title">2024</h2>
+                    <p class="content-desc">
+                        小精灵 (Pixie)是一种铁青色的小型生物，它们非常顽皮，喜欢耍弄各种各样的鬼把戏和恶作剧。
+                        它们虽没翅膀但可飞行。小精灵喜欢揪住那些没有防备的人的耳朵，把他们提起来扔到树梢和屋顶上。这也表明小精灵尽管身材很小，
+                        却有着很大的力气。小精灵能发出叽叽喳喳声向外界沟通，但只有其他小精灵才能明白它的意思。
+                        这种生物能够保持年轻。
+                    </p>
+                </div>
+            </div>
+
+            <div class="item" data-text="三头犬">
+                <div class="content">
+                    <img src="../魔法生物/三头犬.jpg" alt="" class="img">
+                    <h2 class="content-title">2024</h2>
+                    <p class="content-desc">
+                        它非常大，几乎占满了从三楼禁区走廊到天花板的所有位置。满身都是灰颜色的，
+                        长着三只大脑袋。目光凶恶可怕。谁要是经过这里，
+                        它就会立即狂吠起来。并用他那满嘴的黄牙试图咬你，你也就无路可逃了。
+                    </p>
+                </div>
+            </div>
+
+            <div class="item" data-text="龙">
+                <div class="content">
+                    <img src="../魔法生物/恶龙.jpg" alt="" class="img">
+                    <h2 class="content-title">2024</h2>
+                    <p class="content-desc">
+                        诺伯，是一条挪威脊背龙，
+                        是海格在哈利一年级的时候在酒馆里向别人赢来的，
+                        后来因为它长得太大了而被罗恩在罗马尼亚研究龙的哥哥查理·韦斯莱收留，后来发现是母龙，改名为诺贝塔
+                    </p>
+                </div>
+            </div>
+
+            <div class="item" data-text="曼德拉草">
+                <div class="content">
+                    <img src="../魔法生物/曼德拉草.gif" alt="" class="img">
+                    <h2 class="content-title">2024</h2>
+                    <p class="content-desc">
+                        曼德拉草叶片 (Mandrake leaf)是曼德拉草的叶子，可以作为魔药原料。
+                        1995年，当哈利·波特寻找能帮助他完成三强争霸赛第二个项目的信息时，
+                        他忙乱地在各种书籍中查找与“水”有关的内容。但他发现的内容通常都与在水下呼吸无关，
+                        比如提到“水”和曼德拉草叶片的魔药制作指导。
+                    </p>
+                </div>
+            </div>
+
+            <div class="item" data-text="嗅嗅">
+                <div class="content">
+                    <img src="../魔法生物/嗅嗅.jpg" alt="" class="img">
+                    <h2 class="content-title">2024</h2>
+                    <p class="content-desc">
+                        嗅嗅是不列颠一种会掘地的动物。
+                        这种动物全身覆盖着黑色绒毛，鼻吻较长，
+                        对一切闪闪发光的东西都特别偏爱。妖怪们经常饲养泥伏雷来挖掘地下深处的财宝。
+                        虽然泥伏雷性格温和，甚至对你温情脉脉，但它对你的财物会造成破坏，所以千万别养在家中。泥伏雷生活在自己的巢穴中，一般在地下二十英尺的地方，一窝产崽六至八只。
+                    </p>
+                </div>
+            </div>
+
+            <div class="item" data-text="密室蛇怪">
+                <div class="content">
+                    <img src="../魔法生物/密室蛇怪2.jpg" alt="" class="img">
+                    <h2 class="content-title">2024</h2>
+                    <p class="content-desc">
+                        类蛇形魔法生物，身体翠绿，其实与毒蛇有着本质区别。一直以来，人们对蛇怪只有些凤毛麟角的记录。
+                        传说它来自七岁的公鸡在天狼星当空时产下的魔蛋，并由癞蛤蟆将其孵化。它的视线是最危险的攻击武器：
+                        任何与它目光直接相交的生物都将立即毙命（除了凤凰，因为凤凰不会死），
+                        间接相交（比如从镜子里看到）的生物将石化。只要食物充足，蛇怪通常可以活很久。
+                    </p>
+                </div>
+            </div>
+
+            <div class="item" data-text="摄魂怪">
+                <div class="content">
+                    <img src="../魔法生物/摄魂怪.jpg" alt="" class="img">
+                    <h2 class="content-title">2024</h2>
+                    <p class="content-desc">
+                        它披着一件斗篷，全身都像在水里泡烂了一样，有着结痂的手掌，全身腐烂了一样。
+                        凡是此物经过的地方，都会被吸去快乐，让人想起最可怕的事，并且它的兜帽下面的“嘴”会吸去人们的灵魂，
+                        被称为“摄魂怪的吻”。它们守卫着阿兹卡班巫师监狱（魔法世界的牢房）。
+                        只有守护神咒才能将其驱逐。不清楚有没有将其消灭的方法
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+    <script>
+
+        (function ($) {
+            $.fn.timeline = function () {
+                var selectors = {
+                    id: $(this),
+                    item: $(this).find(".item"),
+                    activeClass: "item--active",
+                    img: ".img"
+                };
+                // 将第一个时间轴项目激活，并设置时间轴背景图片为第一个项目的图片
+                selectors.item.eq(0).addClass(selectors.activeClass);
+                selectors.id.css(
+                    "background-image",
+                    "url(" +
+                    selectors.item.first()
+                        .find(selectors.img)
+                        .attr("src") +
+                    ")"
+                );
+                // 获取时间轴项目的总数
+                var itemLength = selectors.item.length;
+                // 当页面滚动时，触发滚动事件
+                $(window).scroll(function () {
+                    var max, min;
+                    // 获取页面滚动的距离
+                    var pos = $(this).scrollTop();
+                    selectors.item.each(function (i) {
+                        // 获取当前时间轴项目的最小和最大高度
+                        min = $(this).offset().top;
+                        max = $(this).height() + $(this).offset().top;
+                        var that = $(this);
+                        // 如果滚动到最后一个项目，并且超过了当前项目高度的一半，
+                        // 则将最后一个项目设置为激活状态，并设置背景图片为最后一个项目的图片
+                        if (i == itemLength - 2 && pos > min + $(this).height() / 2) {
+                            selectors.item.removeClass(selectors.activeClass);
+                            selectors.id.css(
+                                "background-image",
+                                "url(" +
+                                selectors.item.last()
+                                    .find(selectors.img)
+                                    .attr("src") +
+                                ")"
+                            );
+                            selectors.item.last().addClass(selectors.activeClass);
+                        }
+                        // 如果当前滚动位置在当前项目的最小和最大高度之间，
+                        // 则将当前项目设置为激活状态，并设置背景图片为当前项目的图片
+                        else if (pos <= max - 10 && pos >= min) {
+                            selectors.id.css(
+                                "background-image",
+                                "url(" +
+                                $(this)
+                                    .find(selectors.img)
+                                    .attr("src") +
+                                ")"
+                            );
+                            selectors.item.removeClass(selectors.activeClass);
+                            $(this).addClass(selectors.activeClass);
+                        }
+                    });
+                });
+            };
+        })(jQuery)
+        /*
+        最后，我们调用 timeline 插件并传入时间轴的 ID 作为参数。
+        这将启用时间轴插件并为该时间轴绑定滚动事件。
+        */
+       $("#shell").timeline();
+
+
+    </script>
+</body>
+
+</html>

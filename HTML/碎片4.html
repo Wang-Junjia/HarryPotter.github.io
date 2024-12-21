@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>图片线索4</title>
+    <style>
+        /* --------------CSS--------------- */
+        * {
+            padding: 0;
+            margin: 0;
+        }
+
+        body {
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-image: url('../动图特效/星.gif');
+        }
+
+        .container {
+            position: relative;
+            overflow: hidden;
+            margin: 300px auto;
+            height: 400px;
+            width: 400px;
+            border-radius: 20px;
+        }
+
+        .container img {
+            width: 100%; /* 设置图片宽度为100% */
+            height: auto; /* 使高度自适应 */
+            animation: float 3s ease-in-out infinite; /* 添加浮动动画 */
+            filter: drop-shadow(0 0 10px rgba(255, 255, 224, 0.8)); /* 添加发光效果 */
+            transition: transform 0.5s; /* 添加平滑过渡效果 */
+            cursor: pointer;
+        }
+
+        .container img:hover {
+            transform: scale(1.4); /* 鼠标悬停时放大 */
+            filter: drop-shadow(0 0 15px rgba(255, 255, 224, 1)); /* 悬停时增强发光效果 */
+        }
+
+        /* 动画定义 */
+        @keyframes float {
+            0% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-10px); /* 向上移动10px */
+            }
+            100% {
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- --------------HTML代码--------------- -->
+    <div class="container">
+        <img src="../线索/碎片4.png"  onclick="page()" title="真相">
+    </div>
+    <script>
+          function page() {
+            window.location.href = "./解密.html"; 
+        }
+    </script>
+</body>
+
+</html>

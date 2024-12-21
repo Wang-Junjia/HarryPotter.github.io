@@ -1,0 +1,529 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>人物介绍</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+
+
+        #scene {
+            background-color: rgb(221, 223, 252);
+            position: relative;
+            overflow: hidden;
+            width: 100%;
+        }
+
+        .layer {
+            pointer-events: none;
+        }
+
+        h2 {
+            font-size: 18px;
+            width: 90%;
+        }
+
+        .col {
+            display: inline-block;
+            float: left;
+            overflow: hidden;
+            position: relative;
+            width: 12.5%;
+            pointer-events: all;
+            overflow: initial;
+            margin: 0 0 30px;
+        }
+
+        .layer.main {
+            width: 150%;
+            position: absolute;
+            z-index: 1;
+            padding: 20px;
+        }
+
+        .col a {
+            display: block;
+            margin: 15px;
+            overflow: hidden;
+            box-shadow: 0px 16px 32px rgba(0, 0, 0, 0.37);
+        }
+
+        .col a .hover {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            bottom: -15px;
+            left: 15px;
+            z-index: 1;
+            color: white;
+        }
+
+        .col a .hover:after {
+            content: '';
+            position: absolut;
+            top: 0;
+            left: 0;
+            z-index: 1;
+            width: 100%;
+            height: 100%;
+            display: block;
+            background: rgb(130, 146, 236);
+            opacity: 0;
+            transition: 0.35s ease;
+        }
+
+        .col a .hover:hover:after {
+            opacity: 0.85;
+            transition: 0.35s ease;
+        }
+
+        .align-bottom {
+            position: absolute;
+            width: 100%;
+            bottom: 0%;
+            z-index: 2;
+            padding: 15px 20px;
+        }
+
+        .bg-img {
+            padding: 0px;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            background-size: cover;
+            background-position: 50% 50%;
+        }
+
+        @media only screen and (max-width:1200px) {
+            .layer .col {
+                width: 16%;
+            }
+        }
+
+        @media only screen and (max-width:650px) {
+            .layer .col {
+                width: 25%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <section id="scene" data-scalar-y="150.0" data-scalar-x="100.0">
+        <div class="layer main" data-depth="1.0">
+            <div class="col">
+                <a href="#">
+                    <div class="hover">
+                        <div class="pad align-bottom">
+                            <h2>哈利波特</h2>
+                        </div>
+                    </div>
+                    <div class="bg-img" style="background-image:url(../动漫形象/哈利.jpeg);">
+                    </div>
+                </a>
+            </div>
+            <div class="col">
+                <a href="#">
+                    <div class="hover">
+                        <div class="pad align-bottom">
+                            <h2>赫敏格兰杰</h2>
+                        </div>
+
+                    </div>
+                    <div class="bg-img" style="background-image:url(../动漫形象/赫敏.jpeg);">
+
+                    </div>
+                </a>
+            </div>
+            <div class="col">
+                <a href="#">
+                    <div class="hover">
+                        <div class="pad align-bottom">
+                            <h2>罗恩韦斯莱</h2>
+                        </div>
+
+                    </div>
+                    <div class="bg-img" style="background-image:url(../动漫形象/罗恩.jpg);">
+                    </div>
+                </a>
+            </div>
+            <div class="col">
+                <a href="#">
+                    <div class="hover">
+                        <div class="pad align-bottom">
+                            <h2> 阿不思·邓布利多</h2>
+                        </div>
+                    </div>
+                    <div class="bg-img" style="background-image:url(../动漫形象/邓布利多.jpg);">
+                    </div>
+                </a>
+            </div>
+            <div class="col">
+                <a href="#">
+                    <div class="hover">
+                        <div class="pad align-bottom">
+                            <h2>麦格教授</h2>
+                        </div>
+
+                    </div>
+                    <div class="bg-img" style="background-image:url(../动漫形象/麦格教授.jpeg);">
+                    </div>
+                </a>
+            </div>
+            <div class="col">
+                <a href="#">
+                    <div class="hover">
+                        <div class="pad align-bottom">
+                            <h2> 西弗勒斯·斯内普</h2>
+                        </div>
+
+                    </div>
+                    <div class="bg-img" style="background-image:url(../动漫形象/斯内普.jpg);">
+                    </div>
+                </a>
+            </div>
+            <div class="col">
+                <a href="#">
+                    <div class="hover">
+                        <div class="pad align-bottom">
+                            <h2>小天狼星·布莱克</h2>
+                        </div>
+                    </div>
+                    <div class="bg-img" style="background-image:url(../动漫形象/小天狼星.jpg);">
+                    </div>
+                </a>
+            </div>
+            <div class="col">
+                <a href="#">
+                    <div class="hover">
+                        <div class="pad align-bottom">
+                            <h2>德拉科·马尔福</h2>
+                        </div>
+
+                    </div>
+                    <div class="bg-img" style="background-image:url(../动漫形象/马尔福.jpg);">
+                    </div>
+                </a>
+            </div>
+            <div class="col">
+                <a href="#">
+                    <div class="hover">
+                        <div class="pad align-bottom">
+                            <h2>秋张</h2>
+                        </div>
+
+                    </div>
+                    <div class="bg-img" style="background-image:url(../动漫形象/秋张.jpg);">
+                    </div>
+                </a>
+            </div>
+            <div class="col">
+                <a href="#">
+                    <div class="hover">
+                        <div class="pad align-bottom">
+                            <h2>卢娜·洛夫古德</h2>
+                        </div>
+                    </div>
+                    <div class="bg-img" style="background-image:url(../动漫形象/卢娜.jpg);">
+                    </div>
+                </a>
+            </div>
+            <div class="col">
+                <a href="#">
+                    <div class="hover">
+                        <div class="pad align-bottom">
+                            <h2>纽特·斯卡曼德</h2>
+                        </div>
+
+                    </div>
+                    <div class="bg-img" style="background-image:url(../动漫形象/纽特.jpg);">
+                    </div>
+                </a>
+            </div>
+            <div class="col">
+                <a href="#">
+                    <div class="hover">
+                        <div class="pad align-bottom">
+                            <h2>塞德里克·迪戈里</h2>
+                        </div>
+
+                    </div>
+                    <div class="bg-img" style="background-image:url(../动漫形象/塞德里克.jpg);">
+                    </div>
+                </a>
+            </div>
+            <div class="col">
+                <a href="#">
+                    <div class="hover">
+                        <div class="pad align-bottom">
+                            <h2>斯普劳特</h2>
+                        </div>
+                    </div>
+                    <div class="bg-img" style="background-image:url(../动漫形象/斯普劳特.jpg);">
+                    </div>
+                </a>
+            </div>
+            <div class="col">
+                <a href="#">
+                    <div class="hover">
+                        <div class="pad align-bottom">
+                            <h2>小精灵多比</h2>
+                        </div>
+
+                    </div>
+                    <div class="bg-img" style="background-image:url(../动漫形象/多比.jpg);">
+                    </div>
+                </a>
+            </div>
+            <div class="col">
+                <a href="#">
+                    <div class="hover">
+                        <div class="pad align-bottom">
+                            <h2>吉妮·韦斯莱</h2>
+                        </div>
+
+                    </div>
+                    <div class="bg-img" style="background-image:url(../动漫形象/金妮.jpg);">
+                    </div>
+                </a>
+            </div>
+            <div class="col">
+                <a href="#">
+                    <div class="hover">
+                        <div class="pad align-bottom">
+                            <h2>汤姆·马沃罗·里德尔</h2>
+                        </div>
+
+                    </div>
+                    <div class="bg-img" style="background-image:url(../动漫形象/伏地魔.jpeg);">
+                    </div>
+                </a>
+            </div>
+            <div class="col">
+                <a href="#">
+                    <div class="hover">
+                        <div class="pad align-bottom">
+                            <h2>罗伊纳·拉文克劳</h2>
+                        </div>
+                    </div>
+                    <div class="bg-img" style="background-image:url(../动漫形象/拉文克劳.jpg);">
+                    </div>
+                </a>
+            </div>
+            <div class="col">
+                <a href="#">
+                    <div class="hover">
+                        <div class="pad align-bottom">
+                            <h2>戈德里克·格兰芬多</h2>
+                        </div>
+
+                    </div>
+                    <div class="bg-img" style="background-image:url(../霍格沃兹官网主页面/创始人3.gif);">
+                    </div>
+                </a>
+            </div>
+            <div class="col">
+                <a href="#">
+                    <div class="hover">
+                        <div class="pad align-bottom">
+                            <h2>赫尔加·赫奇帕奇</h2>
+                        </div>
+
+                    </div>
+                    <div class="bg-img" style="background-image:url(../霍格沃兹官网主页面/创始人2.gif);">
+                    </div>
+                </a>
+            </div>
+            <div class="col">
+                <a href="#">
+                    <div class="hover">
+                        <div class="pad align-bottom">
+                            <h2>萨拉查·斯莱特林</h2>
+                        </div>
+                    </div>
+                    <div class="bg-img" style="background-image:url(../霍格沃兹官网主页面/创始人4.gif);">
+                    </div>
+                </a>
+            </div>
+            <div class="col">
+                <a href="#">
+                    <div class="hover">
+                        <div class="pad align-bottom">
+                            <h2>尼法朵拉·唐克斯</h2>
+                        </div>
+
+                    </div>
+                    <div class="bg-img" style="background-image:url(../动漫形象/唐克斯.jpg);">
+                    </div>
+                </a>
+            </div>
+            <div class="col">
+                <a href="#">
+                    <div class="hover">
+                        <div class="pad align-bottom">
+                            <h2>厄尼·麦克米兰</h2>
+                        </div>
+
+                    </div>
+                    <div class="bg-img" style="background-image:url(../动漫形象/厄尼.jpg);">
+                    </div>
+                </a>
+            </div>
+            <div class="col">
+                <a href="#">
+                    <div class="hover">
+                        <div class="pad align-bottom">
+                            <h2>高尔</h2>
+                        </div>
+                    </div>
+                    <div class="bg-img" style="background-image:url(../斯莱特林/高尔.png);">
+                    </div>
+                </a>
+            </div>
+            <div class="col">
+                <a href="#">
+                    <div class="hover">
+                        <div class="pad align-bottom">
+                            <h2>猫头鹰小子</h2>
+                        </div>
+
+                    </div>
+                    <div class="bg-img" style="background-image:url(../动图特效/mao.gif);">
+                    </div>
+                </a>
+            </div>
+            <div class="col">
+                <a href="#">
+                    <div class="hover">
+                        <div class="pad align-bottom">
+                            <h2>克拉尔</h2>
+                        </div>
+
+                    </div>
+                    <div class="bg-img" style="background-image:url(../斯莱特林/克拉尔.png);">
+                    </div>
+                </a>
+            </div>
+            <div class="col">
+                <a href="#">
+                    <div class="hover">
+                        <div class="pad align-bottom">
+                            <h2>分院帽</h2>
+                        </div>
+                    </div>
+                    <div class="bg-img" style="background-image:url(../霍格沃兹官网主页面/分院帽.jpeg);">
+                    </div>
+                </a>
+            </div>
+            <div class="col">
+                <a href="#">
+                    <div class="hover">
+                        <div class="pad align-bottom">
+                            <h2>雷古勒斯</h2>
+                        </div>
+
+                    </div>
+                    <div class="bg-img" style="background-image:url(../动漫形象/雷古勒斯.jpg);">
+                    </div>
+                </a>
+            </div>
+            <div class="col">
+                <a href="#">
+                    <div class="hover">
+                        <div class="pad align-bottom">
+                            <h2>西比尔·特里劳妮</h2>
+                        </div>
+
+                    </div>
+                    <div class="bg-img" style="background-image:url(../动漫形象/西比尔.jpg);">
+                    </div>
+                </a>
+            </div>
+            <div class="col">
+                <a href="#">
+                    <div class="hover">
+                        <div class="pad align-bottom">
+                            <h2>吉德罗·洛哈特</h2>
+                        </div>
+                    </div>
+                    <div class="bg-img" style="background-image:url(../动漫形象/、吉德罗.webp);">
+                    </div>
+                </a>
+            </div>
+            <div class="col">
+                <a href="#">
+                    <div class="hover">
+                        <div class="pad align-bottom">
+                            <h2>佩内洛·克里</h2>
+                        </div>
+
+                    </div>
+                    <div class="bg-img" style="background-image:url(../动漫形象/佩内洛.webp);">
+                    </div>
+                </a>
+            </div>
+            <div class="col">
+                <a href="#">
+                    <div class="hover">
+                        <div class="pad align-bottom">
+                            <h2>斯普劳特教授</h2>
+                        </div>
+
+                    </div>
+                    <div class="bg-img" style="background-image:url(../动漫形象/斯普劳特.webp);">
+                    </div>
+                </a>
+            </div>
+            <div class="col">
+                <a href="#">
+                    <div class="hover">
+                        <div class="pad align-bottom">
+                            <h2>菲利乌斯·弗利维</h2>
+                        </div>
+
+                    </div>
+                    <div class="bg-img" style="background-image:url(../动漫形象/弗里维.jpg);">
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+    <!-- 导入插件 -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/parallax/2.1.3/parallax.min.js"></script>
+
+    <script>
+        // 使用库
+        //定义一个名为 makeWinHeight 的函数，用于设置窗口高度和项目高度
+        var makeWinHeight = function () {
+            //获取窗口高度
+            var vh = $(window).height();
+            //将项目高度设置为窗口高度的一半
+            var projects = vh / 2;
+            //设置 id 为 scene 和 class 为 layer main 的元素的高度为窗口高度
+            $('#scene, .layer.main').height(vh);
+            //设置 id 为 scene 中 class 为 col 的元素的高度为项目高度，并将其子元素 a 的高度也设置为项目高度
+            $('#scene .col a, #scene .col').height(projects);
+        }
+        //在文档加载完成后执行 makeWinHeight 函数，以设置窗口高度和项目高度
+        $(document).ready(function () {
+            makeWinHeight();
+        });
+        //在窗口大小变化时，重新执行 makeWinHeight 函数以更新窗口高度和项目高度
+        $(window).resize(function () {
+            makeWinHeight();
+        });
+        var scene = document.getElementById('scene');
+        var parallax = new Parallax(scene);
+    </script>
+</body>
+
+</html>

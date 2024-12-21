@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>拉文克劳学院</title>
+    <!-- <link rel="stylesheet" href="初始化.css"> -->
+    <style>
+      body{
+        font-family: '华文行楷';
+      }
+       .top{
+        width: 100%;
+        height: 680px;
+        display: flex;
+        text-align: center;
+        object-fit: contain;
+        position: relative;
+        background: linear-gradient(to bottom right,#0808a093,#2e4104);
+         flex-direction: column;
+
+       }
+       .top .m{
+        display: block;
+        position: absolute;
+       margin: 190px 35%;
+
+      
+       }
+       .middle{
+            width: 100%;
+            height: 80px;
+            margin-top: 90px;
+           text-align: center;
+           font-size: 36px;
+           line-height: 40px;
+           font-weight: 700;
+        }
+        .middle span:after{
+            content: "——————";
+        }
+        .middle span:before{
+            content: "——————";
+        }
+        .middle img {
+        display: inline-block;
+        width: 100px;
+        height: 80px;
+        cursor: pointer;
+    }
+
+        .box1{
+            width: 95%;
+            height: 330px;
+            margin: 30px 10px;
+            display: flex;
+        }
+        .box1 .left{
+            width: 48%;
+            height: 100%;
+            font-size: 24px;
+            font-family: 华文行楷;
+            line-height: 40px;
+        }
+
+        .box1  .image-container{
+            width: 30%;
+            height: 100%;
+            margin: 0px 20px;
+            object-fit: contain;
+            transition: .5s;
+            overflow: hidden;
+            position: relative;
+          
+        }
+        .image-container img {
+            width: 100%;
+            height: 100%;
+            transition: transform 0.5s ease;
+            cursor: pointer;
+        }
+
+       
+        .hover-text {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background-color: rgba(0, 0, 0, 0.5); /* 半透明背景 */
+            color: #fff; /* 文字颜色 */
+            padding: 10px;
+            text-align: center;
+            opacity: 0; /* 默认不显示 */
+            transition: opacity 0.5s ease;
+        }
+
+        .image-container:hover .hover-text {
+            opacity: 1; /* 鼠标悬停时显示 */
+        }
+       .name{
+        margin: 30px auto;
+        width: 100%;
+        height: 600px;
+        text-align: center;
+       }
+       .name .text{
+        width: 80%;
+        margin: 10px auto;
+        color: black;
+        font-size: 19px;
+       }
+       .left{
+        width: 80%;
+        height: 400px;
+        margin: 30px auto;
+       }
+       .left .frist{
+        width: 45%;
+        height: 100%;
+
+       }
+       .every{
+            display: flex;
+            width: 100%;
+            height: 600px;
+            justify-content: center;
+            align-items: center;
+        }
+        .shell {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            display: grid;
+            grid-template-rows: 500px 200px;
+        }
+
+        .box {
+            /*  将容器放置在第一行，其高度为第一行的高度 */
+            grid-row: 1 / 2;
+            /*  将容器放置在第一列，其宽度为第一到第八列的宽度 */
+            grid-column: 1 / 8;
+            width: 100vw;
+            height: 570px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            /* 设置 3D 转换，以便于创建立体效果 */
+            transform-style: preserve-3d;
+            /* 定义立体效果的观察距离 */
+            perspective: 800px;
+            /*  定义容器内包含的元素数量 */
+            --items: 5;
+            /* 定义容器内居中显示的元素 */
+            --middle: 3;
+            /* 定义容器内当前位置的元素 */
+            --position: 1;
+        }
+
+        div.item {
+            position: absolute;
+            width: 350px;
+            height: 500px;
+            background-color: coral;
+            /* 定义一个 CSS 变量 --r 的值为 var(--position) - var(--offset) */
+            --r: calc(var(--position) - var(--offset));
+            /* 定义变量 --abs 的值为 var(--r) * -1 和 var(--r) 中的最大值 */
+            --abs: max(calc(var(--r) * -1), var(--r));
+            /* 元素的过渡效果为所有属性在 0.25 秒内以线性方式变化 */
+            transition: all 0.25s linear;
+            /* 旋转-10deg*var(--r)角度,并向x轴负方向平移-330px*var(--r) */
+            transform: rotateY(calc(-10deg * var(--r))) translateX(calc(-330px * var(--r)));
+            /* 使当前的图片位于最前面 */
+            z-index: calc((var(--position) - var(--abs)));
+            background-size: cover;
+            box-shadow: 0px 0px 30px rgba(0, 0, 0, 0.6);
+            border: #b5c5ff 10px solid;
+            border-radius: 5px;
+        }
+        
+        .description {
+            position: absolute;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.7);
+            color: white;
+            padding: 10px;
+            display: none;
+            width: 100%;
+            text-align: center;
+        }
+
+        div.item:hover .description {
+            display: block;
+        }
+        input {
+            width: 35px;
+            height: 35px;
+            margin: 10px;
+        }
+
+        .box .item:nth-of-type(1) {
+            --offset: 1;
+            background-image: url(../拉文克劳/秋张.jpeg);
+        }
+
+        .box .item:nth-of-type(2) {
+            --offset: 2;
+            background-image: url(../拉文克劳/卢娜.jpeg);
+        }
+
+        .box .item:nth-of-type(3) {
+            --offset: 3;
+            background-image: url(../拉文克劳/西比尔·特里劳妮.jpg);
+        }
+
+        .box .item:nth-of-type(4) {
+            --offset: 4;
+            background-image: url(../拉文克劳/吉德罗·洛哈特.jpg);
+        }
+
+        .box .item:nth-of-type(5) {
+            --offset: 5;
+            background-image: url(../拉文克劳/last.jpg);
+        }
+
+        input:nth-of-type(1) {
+            grid-column: 2/3;
+            grid-row: 2/3;
+        }
+
+        input:nth-of-type(2) {
+            grid-column: 3/4;
+            grid-row: 2/3;
+        }
+
+        input:nth-of-type(3) {
+            grid-column: 4/5;
+            grid-row: 2/3;
+        }
+
+        input:nth-of-type(4) {
+            grid-column: 5/6;
+            grid-row: 2/3;
+        }
+
+        input:nth-of-type(5) {
+            grid-column: 6/7;
+            grid-row: 2/3;
+        }
+
+        input:nth-of-type(1):checked~.box {
+            --position: 1;
+        }
+
+        input:nth-of-type(2):checked~.box {
+            --position: 2;
+        }
+
+        input:nth-of-type(3):checked~.box {
+            --position: 3;
+        }
+
+        input:nth-of-type(4):checked~.box {
+            --position: 4;
+        }
+
+        input:nth-of-type(5):checked~.box {
+            --position: 5;
+        }
+
+        .fencai{
+            width: 80%;
+            height: 400px;
+            margin: 30px auto;
+            display: flex;
+            justify-content: space-between;
+            background-color: rgba(6, 81, 93, 0.764);
+        }
+              
+        .fencai{
+            width: 90%;
+            height: 470px;
+            margin: 30px auto;
+            margin-bottom: 60px;
+            display: flex;
+            justify-content: space-between;
+            background-color: rgba(6, 81, 93, 0.764);
+        }
+        .random{
+            width: 70%;
+            height: 470px;
+            margin: 20px auto;
+            object-fit: contain;
+        }
+        .random .p1{
+          
+            width: 100%;
+            height: 200px;
+            display: flex;    
+            justify-content: center;
+        }
+        .p1 img{
+            margin: 0px 10px;
+        }
+        .random .p2{
+            margin: 20px auto;
+            width: 100%;
+            height: 200px;
+            display: flex;
+            justify-content: center;
+        }
+        .bottom{
+            margin: 10px auto;
+            width: 97%;
+            height: 100px;
+            display: flex;
+            justify-content: space-between;
+            background: linear-gradient(to bottom right,#04045993,#1a2501);
+        }
+        .bottom img{
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="top"> 
+        <img src="../拉文克劳/拉文克劳.png" width="400px" height="300px" class="m">    
+    </div>
+    <div class="middle"><span> &nbsp;学院介绍&nbsp;</span></div>
+    <div class="box1">
+        <div class="left">
+            <ul>
+                <li>学院精神：智慧敏捷、机智聪明、博学多才</li>
+                <li>代表颜色：蓝色和金色</li>
+                <li>学院幽灵：罗伊纳 拉文克劳的女儿海莲娜</li>
+                <li>拉文克劳的遗物：能增加佩戴者智慧的冠冕</li>
+                <li>学院创办者：罗伊纳·拉文克劳   苏格兰女巫</li>
+                <li>学院标志：鹰（Eagle）</li>
+                <li>院长：弗立维教授</li>
+            </ul>
+
+        </div>
+        <div class="image-container">
+            <img src="../拉文克劳/拉文.jpeg" width="500px" height="400px">
+            <div class="hover-text">
+                菲利乌斯·弗利维，拉文克劳学院院长，并担任霍格沃茨魔咒课教授。
+                菲利乌斯·弗利维至少在1970年就在霍格沃茨教书，是一个有成就的巫师。虽然他天性敏感，个头小（1.07米高），
+                却令人尊敬并且法术高强，他年轻时曾是决斗大赛冠军。除了教学这些他的本职工作外，他还在圣诞节帮忙布置学校，
+                他还喜欢跟朋友到三把扫帚去喝酒。他一般都赞成米勒娃·麦格的意见，非常佩服邓布利多。他也参加了塔楼之战，
+                但因西弗勒斯·斯内普在背后偷袭而被昏迷咒所击中。在第七部大决战前，他协助麦格教授把斯内普赶出霍格沃茨；
+                大决战中，弗利维教授打倒了罪大恶极的食死徒安东宁·多洛霍夫。
+
+            </div>
+        </div>
+       
+    </div>
+    <div class="middle"><span> &nbsp;代表人物&nbsp;</span>
+       <img src="../动图特效/mao.gif" width="90px" title="返回主页面"  onclick="page()">
+    </div>
+    <div class="name">
+        <img src="../拉文克劳/卢娜.webp" width="800px" height="380px">
+        <div class="text">
+            卢娜·洛夫古德看上去恍恍惚惚的，好像她出现在任何地方都是偶然情况，很明显地散发出一种=飘飘忽忽的气质。
+                        有着许多并无事实根据的信念，但她坚定的信念和冷静的风度从某种角度来说是她最大的能量。她相信弯角鼾兽的存在，
+                        还相信她在死后会见到已故的母亲，这样的信念给了哈利安慰。卢娜·洛夫古德是作为“赫敏的对立面”出现的，
+                        因为卢娜把“直觉”作为认识一切的基础，而赫敏·格兰杰相信“事实与逻辑”。赫敏多次试图说服卢娜放弃她荒谬的想法，
+                        但总是以失败而告终。卢娜觉得赫敏“过分偏执”，而赫敏认为卢娜“容易受骗”。
+
+        </div>
+    </div>
+    <div class="every">
+        <div class="shell">
+            <input type="radio" name="position">
+            <input type="radio" name="position">
+            <input type="radio" name="position" checked>
+            <input type="radio" name="position">
+            <input type="radio" name="position">
+            <div class="box">
+                <div class="item">
+                    <div class="description">具有亚洲血统。在学校时，是拉文克劳魁地奇球队的找球手。
+                        秋·张在五年级（哈利·波特四年级）时开始与塞德里克·迪戈里约会。
+                        然而在1995年6月，塞德里克成为了第二次巫师战争中最开始的几个受害者之一，
+                        在等待复活的伏地魔的命令下，塞德里克·迪戈里被小矮星彼得杀死。塞德里克的死让秋·张非常难过，
+                        这也让她下定决心反抗黑魔头。因此在六年级时，她违背父母的意志加入了由哈利·波特领导的邓布利多军。
+                        也在同一年，她和哈利谈起了恋爱。然而，秋·张的好友玛丽埃塔·艾克莫背叛了邓布利多军，哈利和秋·张的恋情也因此结束。
+                        但秋·张仍然忠于学校、忠于邓布利多军。 霍格沃茨之战爆发前，秋·张返回了学校，并参加了战斗。
+
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="description">卢娜·洛夫古德看上去恍恍惚惚的，好像她出现在任何地方都是偶然情况，很明显地散发出一种=飘飘忽忽的气质。
+                        有着许多并无事实根据的信念，但她坚定的信念和冷静的风度从某种角度来说是她最大的能量。她相信弯角鼾兽的存在，
+                        还相信她在死后会见到已故的母亲，这样的信念给了哈利安慰。卢娜·洛夫古德是作为“赫敏的对立面”出现的，
+                        因为卢娜把“直觉”作为认识一切的基础，而赫敏·格兰杰相信“事实与逻辑”。赫敏多次试图说服卢娜放弃她荒谬的想法，
+                        但总是以失败而告终。卢娜觉得赫敏“过分偏执”，而赫敏认为卢娜“容易受骗”。</div>
+                        </div>
+                <div class="item">
+                    <div class="description">西比尔·特里劳妮,她是霍格沃茨魔法学校拉文克劳学院的教授。她教授占卜课程，并以其神秘和模糊的预言而闻名.
+                        通常被描述为一位身材消瘦、面容憔悴的女性，常戴着一副厚厚的眼镜，穿着长袍，表情常常显得神秘和超然。她的外表通常给人一种古怪和超自然的感觉。
+                        她自认为是非常有天赋的占卜师，尽管她的许多预言往往模糊不清且不易理解。特里劳妮的预言能力在整个系列中并不总是受到认可，特别是她在课堂上向学生们展示的占卜技巧，常常被认为是不可靠的。
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="description">吉德罗·洛哈特,他是一位自恋的巫师，声称自己是著名的冒险家和作家，尤其以其在战斗和冒险中获得的“荣耀”而自豪。
+                        洛哈特是一位小有名气的作家和冒险者，他出版了多本书籍，内容涉及他在战斗中击败各种魔法生物的经历。尽管他声称的成就吸引了大量读者，但实际上他大多是夸大其词，甚至抄袭他人的故事。
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="description">佩内洛·克里，她是一名拉文克劳学院的学生，被描绘为聪明且有文化修养的女孩，她在学业上有很好的表现。</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="middle">
+        <span>学生风采</span>
+        <!-- <img src="../格兰芬多/宅舞.gif" alt=""> -->
+    </div>
+    <div class="fencai">
+        <video controls autoplay width="400px" height="470px">	
+			<source src="../拉文克劳/video.mp4" type="video/mp4" />		
+		</video>	
+        <div class="random">
+            <div class="p1">
+                <img src="../拉文克劳/风采1.png" width="300px" height="200px">
+                <img src="../拉文克劳/风采2.png" width="300px" height="200px">
+                <img src="../拉文克劳/风采3.png" width="300px" height="200px">
+            </div>
+            <div class="p2">
+                <img src="../拉文克劳/风采4.png" width="300px">
+                <img src="../拉文克劳/风采5.png" alt="">
+           
+            </div>
+        </div>
+    </div>
+    <div class="bottom">
+        <img src="../格兰芬多/火焰.gif" height="100px">
+        <img src="../格兰芬多/harry.png" height="100px" onclick="page()" title="返回" >
+        <img src="../格兰芬多/火焰.gif" height="100px">
+       </div>
+       <script>
+        function page() {
+            window.location.href = "./霍格沃兹官方页面.html"; 
+        }
+       </script>
+</body>
+</html>

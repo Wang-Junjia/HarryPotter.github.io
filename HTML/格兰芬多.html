@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>格兰芬多学院</title>
+    <link rel="stylesheet" href="学院共同.css">
+    <style>
+        body{
+            height: 100vh;
+            background-color: white;
+            font-family: 华文行楷;
+        }
+       .top{
+        width: 97%;
+        background-color: rgb(110, 3, 3);
+        margin:0px auto;
+        height: 680px;
+        display: flex;
+        text-align: center;
+        object-fit: contain;
+        position: relative;
+        flex-direction: column;
+        
+       }
+       .top .m{
+        display: block;
+        position: absolute;
+        margin: 190px 35%;
+
+      
+       }
+        .middle{
+        width: 100%;
+        height: 80px;
+        margin-top: 90px;
+    text-align: center;
+    
+    font-size: 36px;
+    line-height: 40px;
+    font-weight: 700;
+    }
+    .middle span:after{
+        content: "——————";
+    }
+    .middle span:before{
+        content: "——————";
+    }
+    .middle img {
+        display: inline-block;
+        width: 100px;
+        height: 80px;
+    }
+      
+        .box{
+            width: 100%;
+            height: 330px;
+            margin: 30px 10px;
+            display: flex;
+            background-color: whitesmoke;
+        }
+        .box .left{
+            width: 48%;
+            height: 100%;
+            font-size: 24px;
+            line-height: 40px;
+        }
+
+        .box  .image-container{
+            width: 30%;
+            height: 100%;
+            margin: 0px 20px;
+            object-fit: contain;
+            transition: .5s;
+            overflow: hidden;
+            position: relative;
+          
+        }
+        .image-container img {
+            width: 100%;
+            height: 100%;
+            transition: transform 0.5s ease;
+            cursor: pointer;
+        }
+
+       
+        .hover-text {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background-color: rgba(0, 0, 0, 0.5); /* 半透明背景 */
+            color: #fff; /* 文字颜色 */
+            padding: 10px;
+            text-align: center;
+            opacity: 0; /* 默认不显示 */
+            transition: opacity 0.5s ease;
+        }
+
+        .image-container:hover .hover-text {
+            opacity: 1; /* 鼠标悬停时显示 */
+        }
+        .container {
+            margin-top: 90px;
+            display: flex;
+            height: 400px;
+            position: relative;
+            justify-content: space-between;
+            background-color: whitesmoke;
+        }
+        #leftSide, #rightSide {
+            background-size: cover;
+            background-position: center;
+            width: 36%;
+            cursor: pointer;
+        }
+        .name{
+            height: 100%;
+            width: 20%;
+            color: black;
+            text-align: center;
+            line-height: 100px;
+            font-size: 30px;
+        }
+        .name img{
+            cursor: pointer;
+        }
+        #leftSide {
+            background-image: url('../格兰芬多/哈利.gif');
+        }
+        #rightSide {
+            background-image: url('../格兰芬多/hemin.jpeg');
+        }
+
+        #slideOutLeft {
+            position: absolute;
+            top: 0;
+            left: -50%;
+            width: 36%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.755);
+            transition: left 0.5s ease;
+            padding-top: 30px;
+            color: white;
+            font-family: 华文行楷;
+            font-size: 24px;
+        }
+        #slideOutRight {
+            position: absolute;
+            top: 0;
+            right: -50%; 
+            width: 36%;
+            height: 100%;
+            padding-top: 30px;
+            background-color: rgba(0, 0, 0, 0.866);;
+            transition: left 0.5s ease;
+            color: white;
+            font-family: 华文行楷;
+            font-size: 24px;
+        }
+        .weien{
+            margin: 40px auto;
+            height: 650px;
+            width: 900px;
+           text-align: center;
+           object-fit: contain;
+           font-size: 22px;
+           overflow: hidden;
+           background-color: whitesmoke;
+           font-family: 楷体;
+        }
+
+        .fencai{
+            width: 90%;
+            height: 470px;
+            margin: 30px auto;
+            display: flex;
+            justify-content: space-between;
+            background-color: rgba(86, 5, 5, 0.764);
+        }
+        .random{
+            width: 70%;
+            height: 470px;
+            margin: 20px auto;
+            object-fit: contain;
+        }
+        .random .p1{
+          
+            width: 100%;
+            height: 200px;
+            display: flex;    
+            justify-content: center;
+        }
+        .p1 img{
+            margin: 0px 10px;
+        }
+        .random .p2{
+            margin: 20px auto;
+            width: 100%;
+            height: 200px;
+            display: flex;
+            justify-content: center;
+        }
+        .scret{
+            width: 800px;
+            height: auto;
+            border-radius: 40px;
+            font-size: 20px;
+            margin: 30px auto;
+        }
+        .scret .t1{
+            width: 100%;
+            height: auto;
+            display: flex;
+            margin-top: 10px;
+        }
+        .scret .t2{
+            width: 100%;
+            height: auto;
+            display: flex;
+            margin-top: 10px;
+        }
+        
+        .bottom{
+            margin: 10px auto;
+            width: 97%;
+            height: 100px;
+            display: flex;
+            justify-content: space-between;
+            background-color: rgb(110, 3, 3);
+        }
+   
+    </style>
+</head>
+<body>
+    <div class="top"> 
+        <img src="../格兰芬多/landuo.png" width="400px" height="300px" class="m">    
+    </div>
+    <br>
+    <br>
+    <hr>
+    <div class="middle">
+        <span>学院介绍</span>
+        <img src="../格兰芬多/宅舞.gif" alt="">
+    </div>
+    <div class="box">
+        <div class="left">
+            <ul>
+                <li>学院精神：勇气、活力、骑士精神</li>
+            
+                <li>学院幽灵：“差点没头的尼可”</li>
+                <li>格兰芬多的遗物：分院帽，格兰芬多宝剑
+                </li>
+                <li> 学院创办者：戈德里克·格兰芬多是“那个时代最出色的决斗大师” </li>
+                <li>代表颜色：猩红色和金色</li>
+                <li>院长：麦格教授</li>
+            </ul>
+
+        </div>
+        <div class="image-container">
+            <img src="../格兰芬多/maige.jpg" width="500px" height="400px">
+            <div class="hover-text">
+                出生于苏格兰高地。霍格沃茨魔法学校现任校长，
+                曾经的副校长、代理校长、校长，格兰芬多学院院长，
+                变形课教授。一位坚强的女巫，魁地奇狂热者。她是位公平的导师，
+                对四个学院一视同仁。即便是自己学院的学生触犯校规她也严惩不贷，
+                即使最后丢掉学院杯，因此获得了全体同学的尊敬，她在校长之位上也会将她公平的原则继续下去。
+                在霍格沃茨的教师团队中是位强者，帮助哈利击败了伏地魔，代表着女性异教女神在现代文化中的复兴，凸显女性领袖的力量和女性价值观。
+            </div>
+        </div>
+    </div>
+    <div class="middle">
+        <span>代表人物</span>
+        <img src="../格兰芬多/宅舞.gif" alt="">
+    </div>
+    <div class="container">
+        <div id="leftSide" onclick="toggleSlideOut('left')"></div>
+        <div class="name">
+            <h2>哈利波特</h2>
+           <h2>赫敏格兰杰</h2>
+            <img src="../动图特效/mao.gif" width="80px" onclick="page()" title="回到主页">
+        </div>
+        <div id="rightSide" onclick="toggleSlideOut('right')"></div>
+        <div id="slideOutLeft">
+                <p>
+                    赫敏·简·格兰杰（Hermione Jean Granger），于1979年9月19日生于一个普通中产阶级家庭。
+                    12岁时，麻瓜出身的赫敏·格兰杰得知自己是一个女巫并收到霍格沃茨魔法学校的入学通知书。
+                    她在1991年9月1日进入学校读书，被分进格兰芬多学院，获得大量荣誉的她被认为是用功的学术天才，在学习过程中，与哈利·波特和罗恩·韦斯莱成为“魔法铁三角”。
+                    和哈利·波特还有少部分人一样，见多识广的赫敏·格兰杰很少会被伏地魔的名字吓到，1995年后敢于直呼其名而非“神秘人”（You-Know-Who）或者“那个连名字都不能提的人”（The-One-Who-Must-Not-Be-Named）。
+                    她不仅学术出众，还经常将自己的知识应用于冒险中，为哈利和罗恩提供了宝贵的帮助。
+                   
+                  
+                    
+                </p>
+            
+        </div>
+        <div id="slideOutRight">
+            <p>
+                哈利·波特出生于1980年7月31日，是詹姆·波特和莉莉·波特夫妇的独生子。他拥有黑发和绿眼，
+                头上有一道伤疤，与伏地魔有着共同的祖先。哈利不仅继承了波特家族的飞行天赋，还与他的宠物雪鸮海德薇建立了深厚的情感纽带。
+                在成长过程中，他经历了许多冒险和挑战，最终在邓布利多的指引下，
+                肩负起对抗伏地魔的使命。他勇敢、善良、诚实和坚强，有时也会显得冲动和意气用事。
+                他曾多次阻止伏地魔的行动，被称为“救世之星”，由于体内有伏地魔的灵魂碎片，因此成为伏地魔的第七个魂器并获得蛇佬腔能力，伏地魔的杀戮咒击中哈利·波特时无意摧毁了伏地魔在哈利·波特体内的灵魂碎片，自此摆脱魂器身份。
+                他的头衔是三强争霸赛勇士，格兰芬多找球手，格兰芬多球队队长。
+            </p>
+            
+        </div>
+    </div>
+    <div class="weien">
+        <img src="../格兰芬多/luoen.jpeg" width="600px" height="400px">
+        <p>
+            罗恩生于1980年3月1日，是纯血统巫师家庭——韦斯莱家族的一员。
+            为霍格沃茨魔法学校的学生。他是哈利·波特的好友之一，另一名好友是赫敏·格兰杰，曾担任2年傲罗，
+            后担任韦斯莱魔法把戏坊店长。其父亲为曾在魔法部担任禁止滥用麻瓜物品司司长的亚瑟·韦斯莱。
+在霍格沃茨，罗恩展现出了他的勇气与智慧，不仅在魔法学业上取得了不俗的成绩，还在魁地奇球场上以守门员的身份多次助力学院赢得胜利。
+他与哈利、赫敏一起经历了无数冒险，共同面对并解决了许多魔法世界的难题。
+        </p>
+    </div>
+    <div class="middle">
+        <span>学生风采</span>
+        <img src="../格兰芬多/宅舞.gif" alt="">
+    </div>
+    <div class="fencai">
+        <video controls autoplay width="400px" height="470px">	
+			<source src="../格兰芬多/video.mp4" type="video/mp4" />		
+		</video>	
+        <div class="random">
+            <div class="p1">
+                <img src="../格兰芬多/风采1.jpg" width="300px" height="200px">
+                <img src="../格兰芬多/风采2.jpg" width="300px" height="200px">
+                <img src="../格兰芬多/风采3.png" width="300px" height="200px">
+            </div>
+            <div class="p2">
+                <img src="../格兰芬多/风采4.png" width="300px">
+                <img src="../格兰芬多/风采5.png" alt="">
+           
+            </div>
+        </div>
+    </div>
+    <div class="middle">
+        <span>院内小新闻</span>
+        <img src="../格兰芬多/宅舞.gif" alt="">
+    </div>
+    <div class="scret">
+        <div class="t1">
+            <img src="../格兰芬多/罗恩.png" title="罗恩" width="90px" height="90px">
+            <p>赫敏你最近在干什么，我最近除了上课都没看见过你。</p>
+        </div>
+        <div class="t2">
+            <img src="../格兰芬多/赫敏.png" alt="" title="赫敏" width="90px" height="90px">
+            <p>我在图书馆复习。</p>
+            
+        </div>
+        <div class="t2">
+            <img src="../格兰芬多/罗恩.png" alt=" "title="罗恩" width="90px" height="90px">
+            <p>梅林的胡子！现在才刚刚期中过去，你怎么就开始复习了。</p>
+        </div>
+        <div class="t1">
+            <img src="../格兰芬多/赫敏.png" width="90px" height="90px">
+            <p>期中过去就意味着期末要到了，罗恩你现在不读到时候别想着找我借作业和笔记复习，还有你哈利，不要被罗恩带坏了。</p>
+        </div>
+        <div class="t2">
+            <img src="../格兰芬多/哈利.png" title="哈利" width="90px" height="90px">
+            <p>
+                ...赫敏，现在也不着急复习吧。诶，你们听说了吗？最近学校猫头鹰经常把信件送错，还老是迷路，很多人都投诉到邓布利多校长那边去了。
+
+                </p>
+        </div>
+        <div class="t1">
+            <img src="../格兰芬多/赫敏.png"  width="90px" height="90px">
+            <p>哈利，你不要转移话题。哎，算了，你们两个，我接下来还有事情不和你们多说了。</p>
+        </div>
+        <div class="t2">
+            <img src="../格兰芬多/罗恩.png"  width="90px" height="90px">
+            <p>哈利，你有没有感觉最近赫敏怪怪的，不仅脾气一点就着，还经常看不见人影。我们和她昨天上午不是占卜课吗，然后我看她的课表在同一时间尽然还有麻瓜研究和算术占卜，天呐，难不成她会分身吗。
+            </p>
+        </div>
+        <div class="t1">
+            <img src="../格兰芬多/哈利.png"  width="90px" height="90px">
+            <p>确实很奇怪，她说她在图书馆，可是我有时候去的时候，都没有看到她</p>
+        </div>
+        <div class="t2">
+            <img src="../格兰芬多/罗恩.png"  width="90px" height="90px">
+            <p>哈利！你尽然偷偷背着我去图书馆！咱们还是不是好兄弟了。
+                </p>
+        </div>
+        <div class="t1">
+            <img src="../格兰芬多/哈利.png"  width="90px" height="90px">
+            <p>罗恩，你以为谁都和你一样一点书都不读，你是打算期末痛哭流涕的求着赫敏救你吗？</p>
+        </div>
+        <div class="t2">
+            <img src="../格兰芬多/罗恩.png"  width="90px" height="90px">
+            <p>哦！哈利，你怎么能这么刻薄。</p>
+        </div>
+    </div>
+    <div class="bottom">
+        <img src="../格兰芬多/火焰.gif" height="100px">
+        <img src="../格兰芬多/harry.png" height="100px">
+        <img src="../格兰芬多/火焰.gif" height="100px">
+       </div>
+     
+    <script>
+         function page() {
+        window.location.replace("霍格沃兹官方页面.html"); 
+    }
+        function toggleSlideOut(direction) {
+            const slideOutLeft = document.getElementById('slideOutLeft');
+            const slideOutRight = document.getElementById('slideOutRight');
+            const closeButtonLeft = document.getElementById('closeButtonLeft');
+            const closeButtonRight = document.getElementById('closeButtonRight');
+            
+            if (direction === 'left') {
+                if (slideOutLeft.style.left === '0px') {
+                    slideOutLeft.style.left = '-50%';
+                    closeButtonLeft.style.display = 'none';
+                } else {
+                    slideOutRight.style.right = '-50%';
+                    slideOutLeft.style.left = '0%';
+                    closeButtonLeft.style.display = 'block';
+                }
+            } else if (direction === 'right') {
+                if (slideOutRight.style.right === '0px') {
+                    slideOutRight.style.right = '-50%';
+                    closeButtonRight.style.display = 'none';
+                } else {
+                    slideOutLeft.style.left = '-50%';
+                    slideOutRight.style.right = '0%';
+                    closeButtonRight.style.display = 'block';
+                }
+            }
+        }
+    </script>
+</body>
+
+</html>

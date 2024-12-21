@@ -1,0 +1,192 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>占卜课</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family:"poppins",sans-serif;
+        }
+        body
+        {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background: #e3e3e3 url('cool-background.png') no-repeat center center fixed;
+            overflow: hidden;
+        }
+        .header {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: 10; /* ȷ��ͷ�������ϲ� */
+        }
+
+        h2 {
+            color: #ffffff;
+            margin-bottom: 10px; /* Ϊh2�������instructions֮�����Ӽ�� */
+        }
+
+        #instructions1 {
+            margin-top: 0;
+            font-size: 18px;
+            color: #ffffff;
+            margin-bottom: 20px; /* Ϊinstructions������ģ��֮�����Ӽ�� */
+        }
+        #instructions2 {
+            margin-top: 0;
+            font-size: 18px;
+            color: #ffffff;
+            margin-bottom: 20px; /* Ϊinstructions������ģ��֮�����Ӽ�� */
+        }
+        .container
+        {
+            position: relative;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .container .card
+        {   
+            position: absolute;
+            width: 240px;
+            height: 360px;
+            background-color: #5e5cfc;
+            border-radius: 8px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border:10px solid rgb(255, 255, 255) ;
+            transition: .8s;
+            transform-origin: 50% 100%;
+            overflow: hidden; /* Ensure the image does not overflow the card */
+            opacity: 1; /* Initial opacity */
+            transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out; /* Smooth fade out and transform */
+        }
+        .container:hover .card
+        {
+            transform: rotate(calc(var(--i)*5deg))
+                       translate(calc(var(--i) * 120px),-50px);
+            box-shadow:0 15px 50px  rgb(7, 7, 7) ;
+            cursor: pointer;
+        }
+        /* .container:hover .card:not(:active)
+        {
+            filter: brightness(0.5);
+        } */
+        .container:hover .card:active{
+            transform: translate(calc(var(--i) * 20px),-50px) scale(1.2); /* Scale up the active card */
+            z-index: 999;
+        }
+        .centered {
+            transform: translate(-50%, -50%) scale(1.5) !important;
+            position: fixed;
+            left: 50%;
+            top: 50%;
+            z-index: 1000;
+            transition: transform 0.5s ease-in-out; /* Smooth scaling */
+        }
+        .card img {
+            width: 100%; /* Adjust the image size to fit the card */
+            height: 100%;
+            object-fit: cover; /* Ensure the image covers the card without stretching */
+            transition: opacity 0.5s ease-in-out; /* Smooth transition for image change */
+        }
+        .exit-btn {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            padding: 10px 20px;
+            background: #fff;
+            color: #000;
+            text-decoration: none; /* ȥ���������»��� */
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+   
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h2>霍格沃兹占卜课</h2>
+        <div id="instructions1">每日一次，你被赋予了窥见命运的机会，去领悟占卜的奥秘</div>
+        <div id="instructions2">ͨ通过占卜课，你可以获得魔法世界的神秘占卜知识</div>
+    </div>
+    <div class="container">
+        <!-- All cards use the same image -->
+        <div class="card" style="--i:-4"><img src="kabeimian.jpg" alt="Image"></div>
+        <div class="card" style="--i:-3"><img src="kabeimian.jpg" alt="Image"></div>
+        <div class="card" style="--i:-2"><img src="kabeimian.jpg" alt="Image"></div>
+        <div class="card" style="--i:-1"><img src="kabeimian.jpg" alt="Image"></div>
+        <div class="card" style="--i:0"><img src="kabeimian.jpg" alt="Image"></div>
+        <div class="card" style="--i:1"><img src="kabeimian.jpg" alt="Image"></div>
+        <div class="card" style="--i:2"><img src="kabeimian.jpg" alt="Image"></div>
+        <div class="card" style="--i:3"><img src="kabeimian.jpg" alt="Image"></div>
+        <div class="card" style="--i:4"><img src="kabeimian.jpg" alt="Image"></div>
+    </div>
+    <a href="../霍格沃兹官方页面.html" class="exit-btn" id="exitBtn">Exit</a>
+    
+    <script>
+        let hasClicked = false; // Flag to check if the card has been clicked
+        document.querySelectorAll('.card').forEach(card => {
+            card.addEventListener('click', function() {
+                if (hasClicked) return; // If already clicked, do nothing
+                hasClicked = true; // Mark as clicked
+                
+                // Fade out and remove other cards
+                document.querySelectorAll('.card').forEach(c => {
+                    if (c !== this) {
+                        c.style.opacity = '0'; // Fade out other cards
+                        setTimeout(() => c.remove(), 500); // Remove the card after fading out
+                    }
+                });
+                
+                // Add 'centered' class to the clicked card
+                this.classList.add('centered');
+                
+                // Randomly choose an image between zheng1.png and zheng8.png
+                const images = ['zheng1.png', 'zheng2.png', 'zheng3.png', 'zheng4.png', 'zheng5.png', 'zheng6.png', 'zheng7.png', 'zheng8.png'];
+                const randomImage = images[Math.floor(Math.random() * images.length)];
+                this.querySelector('img').src = randomImage; // Change the image source
+                this.querySelector('img').style.opacity = '0'; // Fade out the front image
+                setTimeout(() => {
+                    this.querySelector('img').style.opacity = '1'; // Fade in the new image
+                }, 500);
+                document.getElementById("instructions1").style.display = "none";
+                document.getElementById("instructions2").style.display = "none";
+            });
+        });
+        
+        // Exit button functionality
+        document.getElementById('exitBtn').addEventListener('click', () => {
+            const centeredCard = document.querySelector('.centered');
+            if (centeredCard) {
+                centeredCard.classList.remove('centered');
+                centeredCard.style.transform = 'scale(1)'; // Reset scale
+                setTimeout(() => {
+                    centeredCard.remove(); // Remove the card after scaling down
+                    document.querySelectorAll('.card').forEach(card => {
+                        card.style.opacity = '1'; // Restore other cards
+                    });
+                    hasClicked = false; // Reset the click flag
+                }, 500);
+            }
+        });
+    </script>
+</body>
+</html>
+

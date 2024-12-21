@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>音乐课</title>
+    <style>
+      
+        body{
+        background: #e3e3e3 url('download.png') no-repeat center center fixed;
+        overflow: hidden;
+        margin: 0;
+        padding: 0;
+        text-align: center;
+        }
+       
+        h2 {
+            color: #333;
+        }
+        .piano-container {
+            background-image: url('wooden-board.png');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            justify-content: center;
+            margin: 20px auto;
+            width: 500px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+        }
+        .piano-key {
+            display: inline-block;
+            width: 50px;
+            height: 200px;
+            margin: 5px;
+            background-color: #ffffff;
+            color: #000;
+            line-height: 200px;
+            font-size: 20px;
+            cursor: pointer;
+            transition: background-color 0.1s ease;
+            border-radius: 5px;
+            position: relative;
+        }
+        .piano-key.pressed {
+            background-color: #615d5d;
+        }
+        #score {
+            font-size: 24px;
+            margin-top: 20px;
+            color: #333;
+        }
+        #instructions {
+            margin-top: 0;
+            font-size: 18px;
+            color: #8b2a0d;
+        }
+        .key-indicator {
+            display: none;
+            width: 100%;
+            height: 3px;
+            background-color: #f00;
+            position: absolute;
+            bottom: 0;
+            left: 0;
+        }
+        .button {
+            padding: 10px 20px;
+            margin: 10px;
+            border: none;
+            border-radius: 5px;
+            background-color: #5cb85c;
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        .button:hover {
+            background-color: #4cae4c;
+        }
+        .center-image {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%; /* ��������ռ�������ӿڿ��� */
+  max-width: 350px; /* ���������ȣ�������Ҫ���� */
+  height: auto; /* �߶�����Ӧ������ͼƬ��С���� */
+  margin: 20px auto; /* ���±߾�Ϊ20px�������Զ������У� */
+  padding: 10px; /* �ڱ߾࣬������Ҫ���� */
+  box-shadow: 10px 10px 5px #888888; /* ��ӰЧ�� */
+  background-color: #fff; /* ������ɫ��������Ҫ���� */
+  border-radius: 5px; /* �߿�Բ�ǣ�������Ҫ���� */
+  overflow: hidden; /* ��ֹͼƬ�������� */
+}
+
+.center-image img {
+  display: block; /* ȥ��ͼƬ�·��Ŀհ׼�϶ */
+  max-width: 100%; /* ͼƬ�����Ȳ������������� */
+  height: auto; /* �߶�����Ӧ������ͼƬ���� */
+  border-radius: 5px; /* ͼƬԲ�ǣ�������һ�� */
+}
+    </style>
+</head>
+<body>
+
+<h2>霍格沃兹音乐课</h2>
+<div id="instructions">演奏钢琴完成音乐.跟随红色提示器完成!</div>
+<div class="center-image">
+    <img src="qingpu.png" >
+  </div>
+<div class="piano-container" id="piano"></div>
+<div id="score">Score: 0</div>
+<button class="button" id="restart">Restart Game</button>
+<a href="../碎片3.html" class="button" id="nextPage" style="display: none;">Next Level</a>
+<script>
+    // Define the piano keys
+    const pianoKeys = {
+        'C4': 'music/1.C(do).mp3',
+        'D4': 'music/2.D(re).mp3',
+        'E4': 'music/3.E(mi).mp3',
+        'F4': 'music/4.F(fa).mp3',
+        'G4': 'music/5.G(sol).mp3',
+        'A4': 'music/6.A(la).mp3',
+        'B4': 'music/7.B(si).mp3'
+    };
+    // Define the notes for "Twinkle Twinkle Little Star"
+    const melody = ['C4', 'C4', 'G4', 'G4', 'A4', 'A4', 'G4', 'F4', 'F4', 'E4', 'E4', 'D4', 'D4', 'C4', 'C4'];
+
+    // Initialize variables
+    let score = 0;
+    let currentNote = 0;
+    let intervalId;
+    let nextNoteTimeout = null;
+
+    // Function to create piano keys
+    function createPianoKeys() {
+        const piano = document.getElementById('piano');
+        Object.keys(pianoKeys).forEach(key => {
+            const div = document.createElement('div');
+            div.textContent = key;
+            div.id = key;
+            div.className = 'piano-key';
+            div.addEventListener('click', function() {
+                handleKeyClick(this.id);
+            });
+            div.addEventListener('mousedown', function() {
+                this.classList.add('pressed');
+            });
+            div.addEventListener('mouseup', function() {
+                this.classList.remove('pressed');
+            });
+            const indicator = document.createElement('div');
+            indicator.className = 'key-indicator';
+            div.appendChild(indicator);
+            piano.appendChild(div);
+        });
+    }
+
+    // Function to handle key clicks
+    function handleKeyClick(key) {
+        const audio = new Audio(pianoKeys[key]);
+        audio.play();
+
+        if (melody[currentNote] === key) {
+            score++; // �������ȷ�ļ�����������
+            document.getElementById('score').textContent = `Score: ${score}`;
+            currentNote++;
+            updateVisualIndicator();
+            checkScore(); // �������Ƿ�ﵽ��ʾ��һҳ��ť������
+        } else {
+            score = Math.max(score - 1, 0); // ���������ȷ�ļ�����������
+            document.getElementById('score').textContent = `Score: ${score}`;
+        }
+
+        // ������һ�������Ķ�ʱ��
+        nextNoteTimeout = Date.now() + 2000;
+    }
+
+    // Function to update the visual indicator
+    function updateVisualIndicator() {
+        const indicators = document.querySelectorAll('.key-indicator');
+        indicators.forEach(indicator => indicator.style.display = 'none');
+        const nextKey = document.getElementById(melody[currentNote]);
+        if (nextKey) {
+            const indicator = nextKey.querySelector('.key-indicator');
+            indicator.style.display = 'block';
+            indicator.style.width = `${nextKey.offsetWidth}px`;
+            indicator.style.left = `0`;
+            indicator.style.bottom = '0';
+        }
+    }
+
+    // Function to move to the next note if allowed
+    function moveToNextNoteIfAllowed() {
+        if (Date.now() > nextNoteTimeout && currentNote < melody.length) {
+            currentNote++;
+            updateVisualIndicator();
+            checkScore(); // �������Ƿ�ﵽ��ʾ��һҳ��ť������
+        }
+    }
+
+    // Function to start the game
+    function startGame() {
+        intervalId = setInterval(moveToNextNoteIfAllowed, 1000); // ÿ�����Ƿ���Ҫ�ƶ�����һ������
+    }
+
+    // Function to check the score and display the next page button
+    function checkScore() {
+        if (score >= 5) {
+            document.getElementById('nextPage').style.display = 'inline-block';
+        } else {
+            document.getElementById('nextPage').style.display = 'none';
+        }
+    }
+
+    // Function to restart the game
+    function restartGame() {
+        score = 0;
+        currentNote = 0;
+        document.getElementById('score').textContent = 'Score: 0';
+        document.getElementById('nextPage').style.display = 'none';
+        clearInterval(intervalId);
+        nextNoteTimeout = Date.now() + 2000; // ������һ�������Ķ�ʱ��
+        startGame(); // ���¿�ʼ��Ϸ
+    }
+
+    // Start the game when the window loads
+    window.onload = function() {
+        createPianoKeys();
+        startGame(); // ��ʼ��Ϸ
+    };
+
+    // Event listeners
+    document.getElementById('restart').addEventListener('click', restartGame);
+</script>
+</body>
+</html>

@@ -1,0 +1,125 @@
+
+
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>魔法世界知识问答</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            text-align: center;
+            padding: 20px;
+            background-color: black;
+            color: white;
+        }
+        .entrace{
+            width: 600px;
+            height: 500px;
+            margin: 100px auto;
+        }
+        .question {
+            margin: 20px 0;
+        }
+        .options {
+            list-style: none;
+            padding: 0;
+        }
+        .options li {
+            margin: 10px 0;
+        }
+        #submit-btn {
+            padding: 10px 20px;
+            font-size: 1.2em;
+        }
+        #next-page {
+            display: none;
+            margin-top: 20px;
+            font-size: 1.5em;
+        }
+    </style>
+</head>
+<body>
+    <div class="entrace">
+        <h1>魔法世界知识问答</h1>
+        <div id="quiz-container"></div>
+        <button id="submit-btn">提交答案</button>
+        <div id="next-page">全部答对了！前往下一页面...</div>
+    </div>
+
+
+    <script>
+             const questions = [
+            { question: "1.邓布利多的凤凰叫什么名字?", options: ["A.福布斯", " B.福克斯 ", "C.纳吉尼 ","D.阿拉戈克"], answer: 1 },
+            { question: "2.	分院帽是四大创始人中哪个人的遗物 ?", options: ["A.戈德里克·格兰芬多", "B.萨拉查·斯莱特林", "C.罗伊纳·拉文克劳"," D.赫尔加·赫奇帕奇"], answer: 0 },
+            { question: "3.	赫敏在上占卜课的时候还同时上了哪门课 ?", options: ["A.算术占卜", "B.魔药学", "C.天文学","D.黑魔法防御课"], answer: 0 },
+            { question: " 4.斯莱特林的学院幽灵叫什么名字?", options: ["A.海莲娜", " B.血人巴罗 ", "C.差点没头的尼可","D.桃金娘"], answer: 1 },
+            { question: "5.	霍格莫德村是要满几年级才可以去?", options: ["A.一年级 ","B.二年级 ", "C.三年级", "D.四年级"], answer: 2 },
+            { question: "6.	一年级新生入学时，是如何到达霍格沃滋的 ?", options: ["A.坐夜琪"," B.坐船", " C.坐马车 ", " D.步行"], answer: 1 },
+            { question: "7.	哈利·波特的宠物雪鸮叫什么名字?", options: ["A.比克巴克 ","B.克利切","C.诺伯", "D.海德薇"], answer: 3 },
+            { question: "8.	格兰芬多的休息室在哪个地方 ?", options: ["A.湖底", "B.禁林旁边 ", " C.塔楼内","D.厨房旁边"], answer: 2 },
+            { question: "9.魁地奇比赛中抓住金色飞贼能得多少分 ?", options: ["A.100分", " B.150分 ", "C.200 分","D.250分"], answer: 1 },
+            { question: "10.三强争霸赛每隔几年举行一次 ?", options: ["  A.3年 ", "B.4年", " C.5年 ","D.6年"], answer: 2 },
+        ];
+
+        let currentQuestionIndex = 0;
+        let correctAnswers = 0;
+
+        function loadQuestion() {
+            const quizContainer = document.getElementById('quiz-container');
+            const questionData = questions[currentQuestionIndex];
+            quizContainer.innerHTML = `
+                <div class="question">${questionData.question}</div>
+                <ul class="options">
+                    ${questionData.options.map((option, index) => `
+                        <li>
+                            <input type="radio" name="option" id="option${index}" value="${index}">
+                            <label for="option${index}">${option}</label>
+                        </li>
+                    `).join('')}
+                </ul>
+            `;
+        }
+
+        function submitAnswer() {
+            const selectedOption = document.querySelector('input[name="option"]:checked');
+            if (selectedOption) {
+                const answerIndex = parseInt(selectedOption.value);
+                if (answerIndex === questions[currentQuestionIndex].answer) {
+                    correctAnswers++;
+                }
+                currentQuestionIndex++;
+
+                if (currentQuestionIndex < questions.length) {
+                    loadQuestion();
+                } else {
+                    checkResults();
+                }
+            } else {
+                alert("请先选择一个答案！");
+            }
+        }
+
+        function checkResults() {
+            if (correctAnswers === questions.length) {
+                document.getElementById('next-page').style.display = 'block';
+                document.getElementById('next-page').innerHTML = '全部答对了！前往下一页面...';
+                // 在此处可以添加跳转到下一页面的逻辑，例如：
+                location.href = '碎片4.html';
+            } else {
+                alert("答错了，重新开始作答！");
+                // 重置状态以重新开始
+                currentQuestionIndex = 0;
+                correctAnswers = 0;
+                loadQuestion();
+            }
+        }
+
+        document.getElementById('submit-btn').addEventListener('click', submitAnswer);
+        loadQuestion(); // 初次加载问题
+    </script>
+
+</body>
+</html>

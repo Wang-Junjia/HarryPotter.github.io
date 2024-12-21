@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>斯特莱林学院</title>
+    <!-- <link rel="stylesheet" href="初始化.css"> -->
+    <style>
+        body{
+            font-family: '华文行楷';
+        }
+       .top{
+        width: 100%;
+        height: 680px;
+        display: flex;
+        text-align: center;
+        object-fit: contain;
+        position: relative;
+        background: linear-gradient(to bottom right,#101011,#02381f);
+         flex-direction: column;
+
+        
+       }
+       .top .m{
+        display: block;
+        position: absolute;
+       margin: 190px 35%;
+
+      
+       }
+        .middle{
+            width: 100%;
+            height: 100px;
+            margin: 50px 0px;
+           text-align: center;
+           font-family: 华文行楷;
+           font-size: 36px;
+        }
+        .middle span:after{
+            content: "——————";
+        }
+        .middle span:before{
+            content: "——————";
+        }
+        .middle img {
+        display: inline-block;
+        width: 100px;
+        height: 80px;
+        cursor: pointer;
+    }
+        .box{
+            width: 95%;
+            height: 330px;
+            margin: 30px 10px;
+            display: flex;
+        }
+        .box .left{
+            width: 48%;
+            height: 100%;
+            font-size: 24px;
+            font-family: 华文行楷;
+            line-height: 40px;
+        }
+
+        .box  .image-container{
+            width: 30%;
+            height: 100%;
+            margin: 0px 20px;
+            object-fit: contain;
+            transition: .5s;
+            overflow: hidden;
+            position: relative;
+          
+        }
+        .image-container img {
+            width: 100%;
+            height: 100%;
+            transition: transform 0.5s ease;
+            cursor: pointer;
+        }
+
+       
+        .hover-text {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background-color: rgba(0, 0, 0, 0.5); /* 半透明背景 */
+            color: #fff; /* 文字颜色 */
+            padding: 10px;
+            text-align: center;
+            opacity: 0; /* 默认不显示 */
+            transition: opacity 0.5s ease;
+        }
+
+        .image-container:hover .hover-text {
+            opacity: 1; /* 鼠标悬停时显示 */
+        }
+       .peple{
+        width: 100%;
+        height: 100px;
+        background-color: #02381f;
+        margin-top: 30px;
+        object-fit: contain;
+        text-align: center;
+       }
+       .peple img{
+        cursor: pointer;
+       }
+       .introduction{
+        margin: 0px auto;
+        width: 80%;
+        height: 600px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        object-fit: contain;
+        text-align: center;
+        position: relative;
+       }
+       #triggerButton {
+            cursor: pointer;
+            border: none;
+            outline: none;
+            width: 300px;
+            height: 400px;
+            background-size: cover;
+            background-image: url('../斯莱特林/斯特莱林in.jpg');
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease;
+        }
+        #triggerButton:active {
+            transform: scale(0.98);
+        }
+        .popup-image {
+            position: absolute;
+            width: 400px;
+            height: 300px;
+            background-size: cover;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            display: none;
+            animation: popUp 0.5s ease forwards;
+        }
+        .popup-image.left {
+            top: 50px; /* Adjust as needed */
+            left: 0;
+            animation: slideInLeft 0.5s ease forwards;
+        }
+        .popup-image.right {
+            bottom: 0;
+            right: 0;
+            animation: slideInRight 0.5s ease forwards;
+        }
+        @keyframes popUp {
+            from {
+                transform: scale(0);
+                opacity: 0;
+            }
+            to {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+        @keyframes slideInLeft {
+            from {
+                transform: translateX(-100%);
+            }
+            to {
+                transform: translateX(0);
+            }
+        }
+        @keyframes slideInRight {
+            from {
+                transform: translateX(100%) translateY(50%);
+            }
+            to {
+                transform: translateX(0) translateY(0);
+            }
+        }
+        
+        .fencai{
+            width: 90%;
+            height: 470px;
+            margin: 30px auto;
+            display: flex;
+            justify-content: space-between;
+            background-color: rgba(39, 60, 5, 0.764);
+        }
+        .random{
+            width: 70%;
+            height: 470px;
+            margin: 20px auto;
+            object-fit: contain;
+        }
+        .random .p1{
+          
+            width: 100%;
+            height: 200px;
+            display: flex;    
+            justify-content: center;
+        }
+        .p1 img{
+            margin: 0px 10px;
+        }
+        .random .p2{
+            margin: 20px auto;
+            width: 100%;
+            height: 200px;
+            display: flex;
+            justify-content: center;
+        }
+        
+        .scret{
+            width: 500px;
+            height: 800px;
+            background-color: green;
+            border-radius: 40px;
+            font-size: 20px;
+            margin: 30px auto;
+            position: relative;
+        }
+        .scret .nei{
+            width: 460px;
+            margin-left: 20px;
+            position: relative;
+            top: 20px;
+            height: 760px;
+            background-color: white;
+            border-radius: 18px;
+        }
+        .scret .t1{
+            width: 100%;
+            height: 25%;
+            display: flex;
+        }
+        .scret .t2{
+            width: 100%;
+            height: 25%;
+            display: flex;
+        }
+        .scret .t3{
+            width: 100%;
+            height: 25%;
+            display: flex;
+        }
+        .scret .t4{
+            width: 100%;
+            height: 25%;
+            display: flex;
+        }
+        .intr{
+            width: 80%;
+            height: auto;
+            font-size: 22px;
+            margin: 30px auto;
+            background-color: rgb(16, 169, 16);
+            font-family: 华文行楷;
+        }
+
+        .bottom{
+            margin: 10px auto;
+            width: 97%;
+            height: 100px;
+            display: flex;
+            justify-content: space-between;
+            background: linear-gradient(to bottom right,#101011,#02381f);
+        }
+    </style>
+</head>
+<body>
+    <div class="top"> 
+        <img src="../斯莱特林/telin.png" width="400px" height="300px" class="m">    
+    </div>
+    <div class="middle"><h3>学院介绍</h3></div>
+    <div class="box">
+        <div class="left">
+            <ul>
+                <li>学院精神：为达目的不择手段</li>
+                <li>代表颜色：绿色和银色</li>
+                <li>学院幽灵：脾气暴躁的“血人巴罗”</li>
+                <li>学院创办者：萨拉查·斯莱特林 中世纪纯血巫师 最早被记录的蛇佬腔之一</li>
+                <li>斯莱特林的遗物：印着字母“S”的挂坠盒</li>
+                <li>学院标志：蛇（Snake）</li>
+                <li>院长：斯内普教授</li>
+            </ul>
+
+        </div>
+        <div class="image-container">
+            <img src="../斯莱特林/斯内普.jpg" width="500px" height="400px">
+            <div class="hover-text">
+                西弗勒斯·斯内西弗勒斯·斯内普是霍格沃茨魔法学校的魔药课教授，同时也是斯莱特林学院的院长。
+                在原著中，他的形象是邋里邋遢、不修边幅，头发油腻、脸色灰黄，给人一种“看你就来气”的感觉。
+                尽管如此，斯内普并不丑，只是他的外貌并不符合人们心目中的“性感男神”形象。他的眼睛乌黑而冷漠，像两条漆黑的隧道，显示出他内心的强悍和神秘。
+                斯内普深爱着莉莉·伊万斯，是一个苛刻、孤独，又高傲又自卑、又冷漠又深情的人。
+            </div>
+        </div>
+    </div>
+  
+    <div class="peple">
+        <img src="../斯莱特林/telin.png" width="150px" title="返回" onclick="page()">
+    </div>
+    <div class="introduction">
+        <button id="triggerButton"></button>
+        <div class="popup-image left" id="leftImage" style="background-image: url('../斯莱特林/马尔福.gif');"></div>
+        <div class="popup-image right" id="rightImage" style="background-image: url('../斯莱特林/汤姆里德尔.jpg');"></div>
+    </div>
+    <div class="intr">
+        <p>
+            德拉科·马尔福：是卢修斯·马尔福和纳西莎·马尔福的独生子，家境富裕，拥有纯血统。
+            德拉科在书中被描述为一个脸色苍白、下巴尖细、拥有浅金色头发和灰色眼睛的人，性格傲慢、自大，鄙视麻瓜和麻瓜出身的巫师。
+        </p>
+        <p>
+            汤姆·里德尔出生于1926年12月31日，他的父亲是一个富有的麻瓜，名叫老汤姆·里德尔，而母亲则是一个女巫，名叫梅洛普·冈特。 梅洛普在汤姆出生后不久就去世了，他被留在了麻瓜孤儿院中长大。
+1938年，汤姆·里德尔十一岁时进入霍格沃茨魔法学校，并被分入斯莱特林学院。他被认为是霍格沃茨招收的最有天赋的学生之一。在学校，他表现出色，成绩优异，并且最终成为了级长和男生学生会主席。 他在学校期间还荣获了优秀品德奖、特殊贡献奖等，并获得了梅林勋章。
+尽管表面上看起来是一个英俊、有礼貌的孩子，但实际上汤姆·里德尔非常残忍、傲慢、残暴、好支使人、心理变态且狂妄自大。 他背地里广招人马集聚势力，在校内同一些狂热追随自己的同学成立了帮派（这个帮派就是食死徒的前身）。
+汤姆·里德尔痴迷于自己的出身，并开始贪得无厌地研究它。他得知自己是斯莱特林的后代后，变得更加狂妄自大。他闭口不谈自己过去的劣迹，也未表现出悔意。他疯狂的崇拜纯血统，并希望有一天当他成为“世界上最伟大的巫师”时，可以让“全世界的巫师都害怕提到他的名字”。 他制作了多个魂器，包括他的日记本，并将一部分灵魂保存在里面，成为自己的第一个魂器。
+
+        </p>
+    </div>
+   
+    <div class="middle">
+        <span>学生风采</span>
+        <img src="../动图特效/mao.gif" width="90px" title="返回主页面"  onclick="page()">
+    </div>
+    <div class="fencai">
+        <video controls autoplay width="400px" height="470px">	
+			<source src="../斯莱特林/video.mp4" type="video/mp4" />		
+		</video>	
+        <div class="random">
+            <div class="p1">
+                <img src="../斯莱特林/风采1.png" width="300px" height="200px">
+                <img src="../斯莱特林/风采2.png" width="300px" height="200px">
+                <img src="../斯莱特林/风采3.png" width="300px" height="200px">
+            </div>
+            <div class="p2">
+                <img src="../斯莱特林/风采4.png" width="300px">
+                <img src="../斯莱特林/风采6.png" alt="">
+           
+            </div>
+           </div>
+    </div>
+    <div class="middle">
+        <span>院内小新闻</span>
+       
+    </div>
+    <div class="scret">
+        <div class="nei">
+            <div class="t1">
+                <img src="../斯莱特林/马尔福.png" title="马尔福" width="90px" height="90px">
+                <p>圣人波特最近又在搞什么，他那两个跟班和他又开始整天神神秘秘的。</p>
+            </div>
+            <div class="t2">
+                <p>不知道，但肯定不是什么好事。</p>
+                <img src="../斯莱特林/高尔.png" alt="" title="高尔" width="90px" height="90px">
+                
+            </div>
+            <div class="t2">
+                <img src="../斯莱特林/克拉尔.png" alt=" "title="克拉尔" width="90px" height="90px">
+                <p>那我们是不是可以跟在他们后面，看他们干什么，然后举报他们，让格兰芬多扣分。</p>
+            </div>
+            <div class="t4">
+                <p>
+                    你们两个的脑子除了吃，终于有点用处了。话说回来波特最近越来越不修边幅了，那头糟糕的黑发里竟然还有羽毛，梅林的裤子，韦斯莱这样的纯血竟然和他混一起，简直是巫师届的耻辱。
+                </p>
+                <img src="../斯莱特林/马尔福.png" title="马尔福" width="90px" height="90px">
+              
+            </div>
+        </div>
+      
+    </div>
+    <div class="bottom">
+        <img src="../斯莱特林/火焰.gif" height="100px">
+        <img src="../斯莱特林/harry.png" height="100px">
+        <img src="../斯莱特林/火焰.gif" height="100px">
+       </div>
+    
+    <script>
+        document.getElementById('triggerButton').addEventListener('click', function() {
+            document.getElementById('leftImage').style.display = 'block';
+            document.getElementById('rightImage').style.display = 'block';
+        });
+  
+        function page() {
+            window.location.href = "./霍格沃兹官方页面.html"; 
+        }
+    </script>
+</body>
+</html>

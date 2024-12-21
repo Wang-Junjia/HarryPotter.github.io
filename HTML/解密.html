@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>谜底揭开</title>
+    <style>
+        /*  --------------CSS--------------- */
+        * {
+            padding: 0;
+            margin: 0;
+        }
+
+        body {
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-image: url('../动图特效/星.gif');
+        }
+
+        .container {
+            width: 600px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, .4);
+            position: relative;
+            overflow: hidden;
+        }
+        img {
+            width: 100%; /* 设置图片宽度为100% */
+            height: auto; /* 使高度自适应 */
+            animation: float 3s ease-in-out infinite; /* 添加浮动动画 */
+            filter: drop-shadow(0 0 10px rgba(255, 255, 224, 0.8)); /* 添加发光效果 */
+            transition: transform 0.5s; /* 添加平滑过渡效果 */
+        }
+
+       img:hover {
+            
+            filter: drop-shadow(0 0 15px rgba(255, 255, 224, 1)); /* 悬停时增强发光效果 */
+        }
+
+        /* 动画定义 */
+        @keyframes float {
+            0% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-10px); /* 向上移动10px */
+            }
+            100% {
+                transform: translateY(0);
+            }
+        }
+
+        .mirror {
+            width: 240px;
+            height: 240px;
+            border-radius: 50%;
+            border: solid 10px #fff;
+            overflow: hidden;
+            transform: translate(-10px, -10px);
+            box-shadow: 0 0 40px rgba(0, 0, 0, .4);
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
+
+        .mirror img {
+            position: absolute;
+        }
+        .back-home {
+            position: fixed;
+            top: 20px; /* 距离顶部20px */
+            right: 20px; /* 距离右侧20px */
+            z-index: 10; /* 确保按钮在最上层 */
+        }
+
+        .button {
+            padding: 10px 20px; /* 按钮内边距 */
+            background-color: white; /* 按钮背景色 */
+            color: black; /* 按钮文字颜色 */
+            text-decoration: none; /* 去除下划线 */
+            border-radius: 5px; /* 按钮圆角 */
+            font-size: 16px; /* 文字大小 */
+            font-weight: bold; /* 文字加粗 */
+            transition: background-color 0.3s; /* 背景色渐变效果 */
+        }
+
+        .button:hover {
+            background-color: #f0f0f0; /* 鼠标悬停时的背景色 */
+        }
+    </style>
+</head>
+
+<body>
+    <!-- --------------HTML代码--------------- -->
+    <a href="霍格沃兹官方页面.html" class="back-home">
+        <div class="button">返回主页</div>
+    </a>
+    <div class="container">
+        <img src="../线索/揭秘.png" alt="" width="600px" height="400px" onclick="page()">
+        <div class="mirror">
+            <img src="../线索/揭秘.png" alt="">
+        </div>
+    </div>
+    <!-- --------------JS代码--------------- -->
+    <script>
+        // 获取元素对象
+        const container = document.querySelector('.container')
+        const mirror = document.querySelector('.mirror')
+        const bigImg = document.querySelector('.mirror img')
+        // 绑定container的鼠标移动事件
+        container.addEventListener('mousemove', e => {
+            // 获取鼠标距离左侧和顶部的边界偏移值
+            let x = e.clientX
+            let y = e.clientY
+            // 获取container奖励左侧和顶部的边界偏移值
+            let left = container.offsetLeft
+            let top = container.offsetTop
+            // 获取放大镜（mirror）距离container的left和top，让放大镜居中于鼠标
+            let mirrorLeft = x - left - mirror.offsetWidth / 2
+            let mirrorTop = y - top - mirror.offsetHeight / 2
+
+            mirror.style.left = mirrorLeft + 'px'
+            mirror.style.top = mirrorTop + 'px'
+            // 计算图片放大
+            let bigImgLeft = (mirrorLeft + mirror.offsetWidth / 2) / container.offsetWidth * bigImg.offsetWidth - mirror.offsetWidth / 2
+            let bigImgTop = (mirrorTop + mirror.offsetHeight / 2) / container.offsetHeight * bigImg.offsetHeight - mirror.offsetHeight / 2
+
+            bigImg.style.left = -bigImgLeft + 'px'
+            bigImg.style.top = -bigImgTop + 'px'
+        })
+    </script>
+</body>
+
+</html>

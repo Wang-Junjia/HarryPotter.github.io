@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>文化传统</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body{
+            background-color: rgba(0, 0, 0, 0.914);
+        }
+        .slider-container {
+            width: 90%;
+            max-width: 1000px;
+            height: 540px;
+            margin: 10px auto;
+            overflow: hidden;
+            position: relative;
+        }
+        .slide {
+            display: flex;
+            transition: transform 0.5s ease;
+        }
+        .slide img {
+            width: 100%;
+            display: block;
+        }
+        .slider-container::after {
+            content: '';
+            position: absolute;
+            z-index: 2;
+            bottom: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: block;
+            width: 100%;
+            text-align: center;
+        }
+        .slider-container::after {
+            content: '';
+            position: absolute;
+            z-index: 2;
+            bottom: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: block;
+            width: 100%;
+            text-align: center;
+        }
+        .btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            cursor: pointer;
+            background-color: rgba(0, 0, 0, 0.5);
+            color: white;
+            border: none;
+            padding: 10px;
+            z-index: 3;
+            transition: background-color 0.3s ease;
+        }
+        .btn:hover {
+            background-color: rgba(0, 0, 0, 0.8);
+        }
+        .prev {
+            left: 10px;
+        }
+        .next {
+            right: 10px;
+        }
+        .dot-container {
+            position: absolute;
+            bottom: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 10px;
+        }
+        .dot {
+            width: 10px;
+            height: 10px;
+            background-color: #ccc;
+            border-radius: 50%;
+            cursor: pointer;
+        }
+        .dot.active {
+            background-color: #333;
+        }
+        .wen{
+            width: 600px;
+            height: 60px;
+            margin: 60px auto;
+            text-align: center;
+            color: rgba(230, 201, 37, 0.815);
+        }
+        .wen h1{
+            font-family: 华文行楷;
+        }
+        span{
+            display: block;
+            width: 800px;
+            height: 130px;
+            margin: 80px auto;
+            color:whitesmoke;
+            font-size: 26px;
+            font-family: 华文行楷;
+            text-align: center;
+            /* background-color:rgba(5, 77, 5, 0.61); */
+        }
+        .container {
+            width: 200px;
+            height: 100px;
+            margin: 0px auto;
+            text-align: center;
+        }
+        .rounded-button {
+        display: inline-block;
+        padding: 15px 30px;
+        font-size: 18px;
+        color: white;
+        font-family: 楷体;
+        background-color: #89baee; 
+        border-radius: 25px; 
+        transition: background-color 0.3s;
+        }
+    .rounded-button:hover {
+    background-color: #0056b3; 
+        }
+        .detials{
+            width: 1000px;
+            height: 300px;
+            margin: 10px auto;
+            display: flex;
+            justify-content: center;
+            object-fit: contain;
+        }
+       .title{
+        width: 1000px;
+        height: 50px;
+        margin: 10px auto;
+        background-color: gray;
+        opacity: 0.4;
+       text-align: center;
+       }
+       .title ul{
+        display: flex;
+        list-style: none;
+       }
+       .title ul li{
+        font-size: 20px;
+        line-height: 40px;
+        color: whitesmoke;
+        opacity: 1;
+        margin: 0px 20px;
+        font-family: 楷体;
+       }
+       .mean{
+        margin: 50px auto;
+        width: 1000px;
+        height: 2600px;
+        background-color: rgb(247, 239, 239);
+       
+       }
+       .main{
+        width: 100%;
+        height: 300px;
+        display: flex;
+       justify-content: space-around;
+       }
+       .main .inside{
+        width: 50%;
+        height: 300px;
+     
+       }
+       .inside h2{
+        padding: 10px 20px;
+        color: rgba(210, 73, 5, 0.719);
+        font-family: 华文行楷;
+       }
+       .inside .content{
+        margin-top: 20px;
+        font-family: 宋体;
+        color: rgba(6, 66, 68, 0.892);
+       }
+       .inside .img{
+        width: 120px;
+        height: 120px;
+        margin-left: 300px;
+        object-fit: contain;
+       }
+       .dixia {
+            width: 900px;
+            position: absolute;
+            height: 500px;
+            left: 300px;
+            color: #fff;
+            font-family: 'Arial', sans-serif;
+            margin: 100px auto;
+        
+        }
+        .header {
+            background-color: #000;
+            padding: 20px;
+            text-align: center;
+        }
+        .logo {
+            width: 100px;
+            margin-bottom: 10px;
+        }
+        .contact-info {
+            margin-top: 20px;
+        }
+        .contact-info a {
+            color: #fff;
+            text-decoration: none;
+            margin: 0 10px;
+        }
+        .footer {
+            background-color: #000;
+            padding: 10px;
+            text-align: center;
+            border-top: 1px solid #444;
+        }
+  
+        .surprise{
+            cursor: alias;
+        }
+    </style>
+</head>
+<body>
+    <div class="slider-container">
+        <div class="slide">
+            <img src="../文化传统/school.jpg " width="100%" height="100%">
+            <img src="../地标/霍格莫德村.jpg" width="100%" height="100%">
+            <img src="../地标/霍格沃滋大厅.jpg" width="100%" height="100%">
+            <img src="../地标/有求必应屋.jpg" width="100%" height="100%">
+        </div>
+        <button class="btn prev" onclick="prevSlide()">&#10094;</button>
+        <button class="btn next" onclick="nextSlide()">&#10095;</button>
+        <div class="dot-container">
+            <span class="dot active" onclick="setSlide(0)"></span>
+            <span class="dot" onclick="setSlide(1)"></span>
+            <span class="dot" onclick="setSlide(2)"></span>
+            <span class="dot" onclick="setSlide(3)"></span>
+        </div>
+    </div>
+    <div class="wen">
+        <h1>文化传统</h1>
+        <strong>——————————————————————————</strong>
+    </div>
+    
+    <span>霍格沃兹魔法学校是一个充满神秘和魅力的地方，不仅因其卓越的魔法教育而闻名，
+        更因其丰富多彩的文化传统活动而独具特色。
+        在霍格沃兹，每年都会举行多种传统活动，
+        既是学生们展示才华的舞台，
+        也促进了各院系之间的交流与合作</span>
+    <div class="container">
+        <a href="https://www.warnerbros.com/movies/harry-potter-complete-8-film-collection" class="rounded-button">详情跳转</a>
+    </div>
+    <div class="detials">
+        <img src="../文化传统/建筑1.jpeg" width="300px">
+        <img src="../文化传统/建筑3.jpeg" width="300px">
+        <img src="../文化传统/建筑2.jpg" width="400px">
+    </div>
+    <div class="wen">
+        <h1>学校特色</h1>
+        <strong>——————————————————————————</strong>
+    </div>
+    <div class="title">
+        <ul>
+            <li>霍格沃兹特快列车</li>
+            <li>分院仪式</li>
+            <li>万圣节</li>
+            <li>圣诞节</li>
+            <li>莫格莫德村</li>
+            <li>三强争霸赛</li>
+            <li>魁地奇</li>
+            <li>学院杯</li>
+        </ul>
+    </div>
+    <div class="mean">
+        <div class="main">
+            <img src="../文化传统/火车驶入.gif" width="450px" height="300px">
+            <div class="inside">
+                <h2>霍格沃兹特快列车</h2>
+                <div class="content">
+                    一辆虚构的魔法列车，这辆列车在伦敦与霍格沃茨之间运行。始发站是伦敦的国王十字车站的9¾站台，
+                    麻瓜无法主动进入这个站台，巫师进入站台的方法是穿越第九和第十站台之间的隔墙。学校级长有专属车厢位于列车的前端。
+                    列车隔间有可能是按照字母顺序排列，鼻涕虫俱乐部曾在列车尾部的C隔间聚会。
+                    当列车到达终点站霍格莫德车站后，一年级新生会按照传统由海格带领坐船过湖到达霍格沃茨，
+                    其他高年级学生则乘坐由夜骐拉的马车经正门到校。	一年级新生入学时，是坐船来到霍格沃兹的
+                </div>
+                <div class="img"><img src="../文化传统/飞天扫帚.webp" width="120px" height="120px"></div>
+            </div>
+        </div>
+        <div class="main">
+            <div class="inside">
+                <h2>分院仪式</h2>
+                <div class="content">
+                    分院仪式（Sorting Ceremony）是每年霍格沃茨魔法学校新生都必须进行的重要仪式。
+                    在大礼堂全校师生面前进行，由分院帽（Sorting Hat）负责将学生分到格兰芬多，赫奇帕奇，拉文克劳以及斯莱特林四个学院。分院帽是一顶磨得很旧，打着补丁，而且脏得要命的尖顶巫师帽，
+                    原本属于格兰芬多创始人戈德里克·格兰芬多。
+                    不过可别小看它，它可是充满智能、会思想的魔帽，
+                    能看出学生具备何种才能，从而将学生分到适合他们的学院。
+                </div>
+                <div class="img"><img src="../文化传统/飞天扫帚.webp" width="120px" height="120px"></div>
+            </div>>
+            <img src="../文化传统/分院仪式.gif" width="450px" height="300px">
+            
+        </div>
+        <div class="main">
+            <img src="../文化传统/万圣节.gif" width="450px" height="300px">
+            <div class="inside">
+                <h2>万圣节宴会</h2>
+                <div class="content">
+                    万圣节宴会 (Hallowe'en Feast)是霍格沃茨魔法学校在每年的10月31日举行的宴会。
+                    礼堂中会被装饰成万圣节的主题：“一千只蝙蝠在墙壁和天花板上扑棱棱地飞翔，
+                    另外还有一千只像一团团低矮的乌云，在餐桌上方盘旋飞舞，使南瓜肚里的蜡烛火苗一阵阵扑闪。”学校的幽灵也会在宴会的最后进行表演：
+                    他们从墙上和桌子上突然出现，组成各种阵型表演滑行。由于万圣节宴会是霍格沃茨举行的大型宴会之一，大多数学生对此都非常期待
+                </div>
+                <div class="img"><img src="../文化传统/飞天扫帚.webp" width="120px" height="120px"></div>
+            </div>>
+        </div>
+        <div class="main">
+            <div class="inside">
+                <h2>圣诞宴会</h2>
+                <div class="content">
+                    圣诞假期 (Christmas holidays)是霍格沃茨魔法学校在圣诞节和新年期间的一段假期，
+                    学生们可以自愿选择乘坐霍格沃茨特快列车回家过圣诞节，
+                    还是留在霍格沃茨城堡。在这段通常为期两周左右的假期中，学校不会给学生安排课程。
+                </div>
+                <div class="img"><img src="../文化传统/飞天扫帚.webp" width="120px" height="120px"></div>
+            </div>>
+            <img src="../文化传统/圣诞节.gif" width="450px" height="300px">
+        </div>
+        <div class="main">
+            <img src="../文化传统/莫德.gif" width="450px" height="300px">
+            <div class="inside">
+                <h2>霍格莫德村</h2>
+                <div class="content">
+                    霍格莫德村是英国唯一的一个全巫师村落，没有麻瓜居住。这个村庄以其独特的茅草覆盖屋顶的村舍和商店而闻名，是一个美丽而风景如画的小村子。每逢假期，村里的树上都会挂满施了魔法的蜡烛，增添了一份魔法世界的节日气氛。
+                    霍格莫德村位于霍格沃茨魔法学校附近的一个大湖旁边，霍格沃茨特快列车的终点站也设在村里，只有满三年级才能来到这里，学生们的新学年都是从那里开始的。沿着湖岸有一条小路从车站直通霍格沃茨城堡。
+                    霍格莫德村不仅是霍格沃茨学生周末的旅游目的地，也是魔法世界的商业中心和休闲场所。在这里，巫师们可以购买斗篷、魔杖、书本、飞天扫帚及整蛊玩具、零食等小玩意。村内有许多著名的商店和酒吧，如三把扫帚酒吧、猪头酒吧、蜂蜜公爵糖果店等。
+                   
+                    
+                </div>
+                <div class="img"><img src="../文化传统/飞天扫帚.webp" width="120px" height="120px"></div>
+            </div>>
+        </div>
+        <div class="main">
+            <div class="inside">
+                <h2>三强争霸赛</h2>
+                <div class="content">
+                    三强争霸赛是欧洲三大魔法学校之间举行的魔法比赛：霍格沃茨魔法学校、德姆斯特朗学院和布斯巴顿魔法学院，每五年举行一次，每所学校都有一名代表参赛。
+
+                    被选中的冠军参加三项任务的比赛——传统上由竞争学校的校长或女校长评判——旨在测试魔法能力、智力和勇气。冠军们争夺赢得比赛的荣誉和荣耀，争夺三强争霸赛杯和金钱奖励。第一届锦标赛于 13 世纪末左右举行。
+                    
+                    该比赛因极其危险而臭名昭著：许多冠军在比赛中死亡，由于死亡人数众多，它在 1792 年或之后的某个时候停止了。
+                </div>
+                <div class="img"><img src="../文化传统/飞天扫帚.webp" width="120px" height="120px"></div>
+            </div>>
+            <img src="../文化传统/三强争霸.jpg" width="450px" height="300px">
+            
+        </div>
+        <div class="main">
+            <img src="../地标/魁地奇球场.jpg" width="450px" height="300px">
+            <div class="inside">
+                <h2>魁地奇</h2>
+                <div class="content">
+                    魁地奇 (Quidditch)是一种在飞天扫帚上进行的巫师体育运动。这个运动在男女巫师中间非常流行，按照鲁伯·海格的说法，这种运动就像麻瓜世界中的足球一样深受欢迎[1]。
+                    这项运动的目的是获得比对手更多的分数。在比赛中，每进一个球可以为球队挣得十分，
+                    而抓住金色飞贼则可以得到一百五十分。同时，只有当金色飞贼被抓住，或者经过两支球队的队长同意的情况下，一场魁地奇比赛才能结束。
+                    如果飞贼一直没有被抓到，一场魁地奇比赛可能会进行很多天。据奥利弗·伍德所说，魁地奇比赛时间的最长记录是三个月。
+                </div>
+                <div class="img"><img src="../文化传统/飞天扫帚.webp" width="120px" height="120px"></div>
+            </div>>
+        </div>
+
+        <div class="main">
+            <div class="inside">
+                <h2>学院杯</h2>
+                <div class="content">
+                    学院杯 (House Cup)时霍格沃茨的一个年度奖项。每学年结束时，学院杯会颁发给学院分最高的学院。在一学年中，
+                    教师和级长有权为不同的学院加减学院分。学生的出色表现（比如正确回答问题等）会给自己的学院加分，而行为不端或违反校规则会减分。
+                    赢得魁地奇杯冠军的学院会得到额外的加分。
+                    霍格沃茨城堡门厅中的学院分沙漏会实时记录每个学院的分数。
+                    代表不同学院的四个沙漏中分别装着不同的宝石：格兰芬多沙漏中为红宝石，拉文克劳沙漏中为蓝宝石，斯莱特林为绿宝石，而赫奇帕奇的沙漏中则为钻石。
+                </div>
+                <div class="img"><img src="../文化传统/飞天扫帚.webp" width="120px" height="120px" onclick="page()" title="返回"></div>
+            </div>>
+            <img src="../文化传统/学院杯.jpg" width="450px" height="300px">
+        </div>
+        <img class="surprise" src="../动图特效/mao.gif" onclick="page1()" title="？">
+    </div>
+    <div class="dixia">
+        <div class="header">
+            <img src="../霍格沃兹官网主页面/分院帽.png" alt="Hogwarts Logo" class="logo">
+            <h1>HOGWARTS</h1>
+            <p>霍格沃茨魔法学校</p>
+            <div class="contact-info">
+                <a href="tel:15055686182">📞 15055686182</a>
+                <a href="mailto:2391038939@qq.com">✉️ 2391038939@qq.com</a>
+                <a href="#">📍 霍格沃茨魔法学校</a>
+                <a href="#">💬 意见反馈</a></div>
+        </div>
+        <div class="footer">
+            <p>© 霍格沃茨魔法学校 —— Stay With Magic</p>
+            <p>Looking for Pottermore? Wizarding World is the new official home of Harry Potter & Fantastic Beasts. Join the Fan Club and bring your traits with you.</p>
+            <p>Brought to you by Wizarding World Digital, a partnership between Warner Bros. and Pottermore. Delivering the latest news and official products from the Wizarding World and our partners.</p>
+            <p>TM & © WBEI. WIZARDING WORLD Publishing and Theatrical Stage Rights © J.K. Rowling.</p>
+        </div>
+    </div>
+    <script>
+         let slideIndex = 0;
+        const slides = document.querySelectorAll('.slide img');
+        const dots = document.querySelectorAll('.dot');
+        const totalSlides = slides.length;
+
+        function updateDots() {
+            dots.forEach((dot, index) => {
+                dot.classList.remove('active');
+                if (index === slideIndex) {
+                    dot.classList.add('active');
+                }
+            });
+        }
+
+        function updateSlidePosition() {
+            const sliderWidth = document.querySelector('.slide').clientWidth;
+            document.querySelector('.slide').style.transform = `translateX(-${slideIndex * sliderWidth}px)`;
+            updateDots();
+        }
+
+        function nextSlide() {
+            if (slideIndex < totalSlides - 1) {
+                slideIndex++;
+            } else {
+                slideIndex = 0;
+            }
+            updateSlidePosition();
+        }
+
+        function prevSlide() {
+            if (slideIndex > 0) {
+                slideIndex--;
+            } else {
+                slideIndex = totalSlides - 1;
+            }
+            updateSlidePosition();
+        }
+
+        function setSlide(index) {
+            slideIndex = index;
+            updateSlidePosition();
+        }
+
+        // Initialize the slide position
+        updateSlidePosition();
+        function page1() {
+            window.location.href = "./碎片1.html"; 
+        }
+
+        function page() {
+            window.location.href = "./霍格沃兹官方页面.html"; 
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>赫奇帕奇学院</title>
+    <!-- <link rel="stylesheet" href="初始化.css"> -->
+    <style>
+        body{
+            font-family: '华文行楷';
+        }
+        .top{
+        width: 100%;
+        height: 680px;
+        display: flex;
+        text-align: center;
+        object-fit: contain;
+        position: relative;
+        background: linear-gradient(to bottom right,#e8e80aa5,#666666);
+         flex-direction: column;
+       }
+       .top .m{
+        display: block;
+        position: absolute;
+       margin: 190px 35%;
+
+      
+       }
+       .middle{
+            width: 100%;
+            height: 80px;
+            margin-top: 90px;
+            margin-left: 25% ;
+           text-align: center;
+            display: flex;
+           font-size: 36px;
+           line-height: 40px;
+           font-weight: 700;
+        }
+        .middle span:after{
+            content: "——————";
+        }
+        .middle span:before{
+            content: "——————";
+        }
+        .middle img{
+            cursor: pointer;
+        }
+        /* .middle img {
+            display: inline-block;
+            width: 100px;
+            height: 80px;
+        } */
+        .box{
+            width: 95%;
+            height: 330px;
+            margin: 30px 10px;
+            display: flex;
+        }
+        .box .left{
+            width: 48%;
+            height: 100%;
+            font-size: 24px;
+            font-family: 华文行楷;
+            line-height: 40px;
+        }
+
+        .box  .image-container{
+            width: 30%;
+            height: 100%;
+            margin: 0px 20px;
+            object-fit: contain;
+            transition: .5s;
+            overflow: hidden;
+            position: relative;
+          
+        }
+        .image-container img {
+            width: 100%;
+            height: 100%;
+            transition: transform 0.5s ease;
+            cursor: pointer;
+        }
+
+       
+        .hover-text {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background-color: rgba(0, 0, 0, 0.5); /* 半透明背景 */
+            color: #fff; /* 文字颜色 */
+            padding: 10px;
+            text-align: center;
+            opacity: 0; /* 默认不显示 */
+            transition: opacity 0.5s ease;
+        }
+
+        .image-container:hover .hover-text {
+            opacity: 1; /* 鼠标悬停时显示 */
+        }
+        .bix{
+            width: 1200px;
+            margin: auto;
+            padding-top: 80px;
+        }
+        .bix>.title{
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 50px;
+        }
+        .bix>.title>.item{
+            background: linear-gradient(to bottom right,#e3e4ef,#edf1a0);
+            height: 80px;
+            width: 20%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 28px;
+            box-sizing: 0 0 10px #fff;
+            cursor: pointer;
+        }
+        .bix>.title.item>img{
+            width: 70px;
+            height: 70px;
+            border-radius: 100%;
+            transition: .5s;
+            object-fit: cover;
+        }
+        .bix>.title.item>span{
+        color: #fff;
+        font-size: 18px;
+        letter-spacing: 5px;
+        margin-right: 10px;
+        font-weight: bold;
+        transition: .5s;
+        }
+        .bix>.title>.checked{
+            background: linear-gradient(to bottom right,#fbf8f9,#edf1a0);
+            box-shadow: 0 0 28px #fff;
+
+        }
+        .bix>.title>.checked>span{
+           margin-right: 35px;
+
+        }
+        .bix>.title>.checked>img{
+            transform: scale(1.5);
+        }
+        .content{
+            background-color: rgba(255,255,255,5);
+            height: 0;
+            padding: 0;
+            overflow: hidden;
+            border-radius: 30px;
+            color: #3b559b;
+            opacity: 0;
+            transition: .5s;
+        }
+        .che{
+            opacity: 1;
+            height: 600px;
+            padding: 20px;     
+           }
+           .content>.smallTit{
+            font-size: 20px;
+           }
+           .content>h1{
+            font-size: 50px;
+            margin: 20px 0;
+           }
+           .content>.body{
+            font-size: 18px;
+            line-height: 2;
+            text-align: justify;
+           }
+           .imglist{
+            display: flex;
+            justify-content: space-between;
+            margin-top: 30px;
+           }
+           .imglist>img{
+            width: 47%;
+            height: 330px;
+            object-fit: cover;
+            border-radius: 30px;
+           }
+
+      
+        .fencai{
+            width: 90%;
+            height: 470px;
+            margin: 30px auto;
+            display: flex;
+            justify-content: space-between;
+            background-color: rgba(126, 122, 6, 0.764);
+        }
+        .random{
+            width: 70%;
+            height: 470px;
+            margin: 20px auto;
+            object-fit: contain;
+        }
+        .random .p1{
+          
+            width: 100%;
+            height: 200px;
+            display: flex;    
+            justify-content: center;
+        }
+        .p1 img{
+            margin: 0px 10px;
+        }
+        .random .p2{
+            margin: 20px auto;
+            width: 100%;
+            height: 200px;
+            display: flex;
+            justify-content: center;
+        }
+           .bottom{
+            margin: 10px auto;
+            width: 97%;
+            height: 100px;
+            display: flex;
+            justify-content: space-between;
+            background: linear-gradient(to bottom right,#e8e80aa5,#666666);
+        }
+    </style>
+</head>
+<body>
+    <div class="top"> 
+        <img src="../赫奇帕奇/heqi.png" width="400px" height="300px" class="m">    
+    </div>
+    <div class="middle"><span>
+    学院介绍
+    </span></div>
+    <div class="box">
+        <div class="left">
+            <ul>
+                <li>学院精神：正直、忠诚、诚实、不畏艰难</li>
+                <li>代表颜色：黄色和灰色</li>
+                <li>学院幽灵：憨厚的胖修士</li>
+                <li>赫奇帕奇的遗物：金杯</li>
+                <li>学院创始人：赫尔加·赫奇帕奇 擅长食物咒</li>
+                <li>学院标志：獾（Badger）</li>
+                <li>院长：斯普劳特教授</li>
+            </ul>
+
+        </div>
+        <div class="image-container">
+            <img src="../赫奇帕奇/赫奇.jpg" width="500px" height="400px">
+            <div class="hover-text">
+                波莫娜·斯普劳特（Pomona Sprout）是霍格沃茨魔法学校草药学教授，同时也是赫奇帕奇学院的院长
+                她的名字“Sprout”意为发芽，象征着她所教授的科目与植物生长相关
+                斯普劳特教授有着一头灰色的飘逸头发，常常戴着一顶带有补丁的厚帽子，指甲里总是沾满泥土，因为她总是待在温室里照料植物
+                斯普劳特教授以其深厚的草药学知识和技能而著称，她不仅教授学生们如何照料魔法世界的奇异植物和菌类，还能够轻松应对霍格沃茨那些有毒且危险的植物
+                她的草药技能也常常用于协助斯内普教授和庞弗雷夫人，为魔药制作和治疗药剂提供重要成分
+            </div>
+        </div>
+     
+    </div>
+    <div class="middle">
+        <span>代表人物</span>
+        <img src="../动图特效/mao.gif" width="95px" title="返回主页面" onclick="page()">
+    </div>
+    <div class="bix">
+        <div class="title">
+            <div class="item">
+                <span>塞德里克</span>
+                <img src="../赫奇帕奇/413.webp" width="90px">
+            </div>
+            <div class="item">
+                <span>纽特·斯卡曼德</span>
+                <img src="../赫奇帕奇/4233.webp"  width="70px">
+            </div>
+            <div class="item checked">
+                <span>尼法朵拉·唐克斯</span>
+                <img src="../赫奇帕奇/423.webp"  width="60px">
+            </div>
+            <div class="item">
+                <span>厄尼·麦克米兰</span>
+                <img src="../赫奇帕奇/443.webp"  width="100px">
+            </div>
+        </div>
+        <div class="content">
+            <div class="smallTit">塞德里克</div>
+            <h1>塞德里克</h1>
+            <div class="body">
+                            
+                塞德里克·迪戈里：是一个充满理智、具有才华、有着优雅的风度的男孩。
+                人们称赞他有着“人们对于霍格沃茨的学生期望中的一切。”
+                邓布利多在学期末的离校宴会上深表对塞德里克的哀悼之意：“塞德里克充分体现了赫奇帕奇学院所特有的品质，
+                是值得大家学习的楷模。”“他是一位善良、忠诚的朋友，他崇尚公平竞争，他的死使大家受到了震撼，无论认识他与否。
+                ”“请永远记住塞德里克，当你们不得不在正道和捷径之间作出选择时，请不要忘记一个正直、善良、勇敢的男孩所遭遇到的。”
+                他曾在六年级时报名参加了三强争霸赛，并被火焰杯选中成为霍格沃茨的勇士
+                在三强争霸赛中，塞德里克在前两个项目结束后与哈利·波特并列第一
+                他和哈利最终共同完成了第三个项目，并一起举起了三强杯，但这个奖杯被变成了门钥匙，将他们传送到了小汉格顿教堂墓地，塞德里克随后被伏地魔命令下的小矮星彼得用杀戮咒杀害
+                
+            </div>
+            <div class="imglist">
+                <img src="../赫奇帕奇/411.jpg" width="200px">
+                <img src="../赫奇帕奇/412.png" width="200px">
+            </div>
+        </div>
+       
+        <div class="content">
+            <div class="smallTit">纽特·斯卡曼德</div>
+            <h1>纽特</h1>
+            <div class="body">
+                纽特·斯卡曼德出生于1897年2月24日
+                英国著名的神奇动物学家、旅行家、游记作者，也是《神奇动物在哪里》一书的作者
+                ，此书后来成为霍格沃茨魔法学校保护神奇生物课的教科书。斯卡曼德从很小就产生了对神奇生物的兴趣
+                ，他的母亲饲养鹰头马身有翼兽，而这也对他产生了不小影响。纽特曾在霍格沃茨魔法学校的赫奇帕奇学院学习，但后来因故被学校开除。
+                由于阿不思·邓布利多坚持认为他是无辜的，他也因此没有受到除此之外的其他惩罚。
+                  
+            </div>
+            <div class="imglist">
+                <img src="../赫奇帕奇/纽特.jpg" width="200px">
+                <img src="../赫奇帕奇/纽特2.jpg" width="200px">
+            </div>
+        </div>
+        <div class="content">
+            <div class="smallTit">尼法朵拉·唐克斯</div>
+            <h1>尼法朵拉</h1>
+            <div class="body">
+                尼法朵拉·唐克斯是凤凰社的成员，一个易容马格斯，可以轻松改变自己的容貌（如在瞬间变换发色，鼻子形状等），
+                她也是把哈利从女贞街救出来的成员之一，是凤凰社的成员。唐克斯讨厌别人叫她尼法朵拉，因为尼法在英国是个不雅的称呼。
+                她与莱姆斯·卢平结婚，并有了一个儿子泰迪·卢平。在她活泼开朗的外表下，却是个热忱忠诚的女子，也是个具有很高天赋的傲罗。
+                唐克斯热情、活泼，很容易和刚认识的人交朋友。作为一名变形法师，唐克斯以将她的天赋用于轻松的目的而闻名，比如为了娱乐而试验她的外表。尽管如此，当她不开心的时候，比如当她的爱情被莱姆斯·卢平拒绝的时候，或者当她非常生气的时候，她就很难控制自己的魔法能力。
+唐克斯是阿不思·邓布利多的忠实支持者。在她为凤凰社工作的过程中，她勇敢、可靠、无私
+
+            </div>
+            <div class="imglist">
+                <img src="../赫奇帕奇/唐克斯.jpeg" width="200px">
+                <img src="../赫奇帕奇/唐克斯2.jpeg" width="200px">
+            </div>
+        </div>
+        <div class="content">
+            <div class="smallTit">厄尼·麦克米兰</div>
+            <h1>厄尼</h1>
+            <div class="body">
+                厄尼·麦克米兰出生于1980年，是一个纯血统巫师，就读于赫奇帕奇学院，并担任过级长。
+他有着金色的头发，博格特是伏地魔，守护神是公猪。厄尼出生在一个纯血统家族，
+可以追溯九代巫师。他与梅拉妮娅·布莱克（小天狼星·布莱克的外祖母）有亲戚关系，属于麦克米兰家族
+
+            </div>
+            <div class="imglist">
+                <img src="../赫奇帕奇/441.jpg" width="200px">
+                <img src="../赫奇帕奇/442.jpg" width="200px">
+            </div>
+        </div>
+    </div>
+
+    <div class="middle">
+        <span>学生风采</span>
+        <!-- <img src="../格兰芬多/宅舞.gif" alt=""> -->
+    </div>
+    <div class="fencai">
+        <video controls autoplay width="400px" height="470px">	
+			<source src="../赫奇帕奇/video.mp4" type="video/mp4" />		
+		</video>	
+        <div class="random">
+            <div class="p1">
+                <img src="../赫奇帕奇/风采1.png" width="300px" height="200px">
+                <img src="../赫奇帕奇/风采2.png" width="300px" height="200px">
+                <img src="../赫奇帕奇/风采3.png" width="300px" height="200px">
+            </div>
+            <div class="p2">
+                <img src="../赫奇帕奇/风采4.png" width="300px">
+                <img src="../赫奇帕奇/风采5.png" alt="">
+           
+            </div>
+        </div>
+    </div>
+    <div class="bottom">
+        <img src="../格兰芬多/火焰.gif" height="100px">
+        <img src="../格兰芬多/harry.png" height="100px">
+        <img src="../格兰芬多/火焰.gif" height="100px">
+       </div>
+    <script>
+        let titlist=document.querySelectorAll('.title>.item');
+        let conlist=document.querySelectorAll('.content');
+        for(let i=0;i<titlist.length;i++){
+            titlist[i].onclick=function(){
+                clear();
+                titlist[i].classList.add('checked');
+                conlist[i].classList.add('che');
+
+            }
+        }
+        function clear(){
+            for(let i=0;i<titlist.length;i++){
+                titlist[i].classList.remove('checked');
+                conlist[i].classList.remove('che');
+
+            }
+        }
+
+        function page() {
+            window.location.href = "./霍格沃兹官方页面.html"; 
+        }
+    </script>
+</body>
+</html>
